@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0075C2">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="医療情報検定">
+<title>医療情報基礎知識検定 図解テキスト</title>
+<style>
+:root{
+  --bg:#f5f7fa; --card:#fff; --ink:#1b2430; --sub:#5b6b7c; --line:#dfe6ee;
+  --accent:#0075C2; --accent2:#009FB9; --ok:#00A73C; --ng:#F25F5C; --warn:#E8A33D;
+  --box:#eef4fa; --box2:#e6f5f8; --box3:#f1f5f9;
+  --shadow:0 1px 3px rgba(16,32,48,.08),0 8px 24px rgba(16,32,48,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#11161d;--card:#181f28;--ink:#e8eef5;--sub:#93a3b5;--line:#2a3340;
+  --box:#1e2b38;--box2:#1b2f36;--box3:#212a35;
+  --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.85;
+  font-family:"Yu Gothic UI","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:1150px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:15px}.brand span{color:var(--accent)}
+.top a.back{margin-left:auto;font-size:13px;text-decoration:none;border:1px solid var(--line);
+  padding:6px 13px;border-radius:999px;font-weight:600}
+.top a.back:hover{border-color:var(--accent)}
+.wrap{max-width:1150px;margin:0 auto;padding:22px 16px 90px;display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr;gap:14px}nav.toc{position:static!important;max-height:none!important}}
+nav.toc{position:sticky;top:64px;max-height:calc(100vh - 90px);overflow:auto;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:12px 6px;box-shadow:var(--shadow);font-size:13px}
+nav.toc b{display:block;padding:7px 10px 3px;color:var(--accent);font-size:12.5px}
+nav.toc a{display:block;padding:4px 10px 4px 18px;color:var(--sub);text-decoration:none;border-left:3px solid transparent}
+nav.toc a:hover{background:rgba(0,117,194,.07);color:var(--accent)}
+h1.tt{font-size:23px;margin:0 0 6px}
+p.lead{color:var(--sub);font-size:14px;margin:0 0 22px}
+section.ch{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:22px 26px;margin-bottom:20px;box-shadow:var(--shadow)}
+@media(max-width:600px){section.ch{padding:18px 15px}}
+h2{font-size:19px;margin:0 0 14px;padding-bottom:9px;border-bottom:2px solid var(--accent);display:flex;gap:10px;align-items:center}
+h2 i{font-style:normal;background:var(--accent);color:#fff;width:27px;height:27px;border-radius:8px;
+  display:grid;place-items:center;font-size:14px;font-weight:700;flex:none}
+h3{font-size:15.5px;margin:26px 0 9px;color:var(--accent2);border-left:4px solid var(--accent2);padding-left:9px}
+h4{font-size:14px;margin:16px 0 6px}
+p{margin:0 0 11px;font-size:14.5px}
+ul,ol{margin:0 0 12px;padding-left:1.4em;font-size:14.5px}
+li{margin-bottom:4px}
+strong{color:var(--accent)}
+.fig{margin:16px 0 18px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:12.5px;color:var(--sub);margin-top:7px}
+table{width:100%;border-collapse:collapse;font-size:13.8px;margin:10px 0 16px}
+th,td{padding:8px 10px;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--box3);font-weight:700;font-size:13px}
+.note{background:var(--box2);border-left:4px solid var(--accent2);padding:11px 15px;border-radius:0 9px 9px 0;margin:14px 0;font-size:13.8px}
+.note b{color:var(--accent2)}
+.warnbox{background:rgba(232,163,61,.12);border-left:4px solid var(--warn);padding:11px 15px;border-radius:0 9px 9px 0;margin:14px 0;font-size:13.8px}
+.warnbox b{color:var(--warn)}
+.abbr{background:var(--box);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:13.8px}
+.abbr .h{font-weight:700;font-size:15px;color:var(--accent);margin-bottom:7px}
+.abbr table{margin:0 0 7px;font-size:13px}
+.abbr td{border:0;border-bottom:1px dashed var(--line);padding:4px 8px 4px 0}
+.abbr td.e{font-weight:700;white-space:nowrap;width:1%;color:var(--ink)}
+.abbr td.j{color:var(--sub)}
+.abbr .r{font-size:13.5px;padding-top:5px}
+.kw{display:inline-block;background:rgba(0,117,194,.1);color:var(--accent);border-radius:5px;
+  padding:0 6px;font-weight:700;font-size:13px}
+.chk{background:var(--box3);border-radius:10px;padding:12px 16px;margin:14px 0}
+.chk b{display:block;margin-bottom:5px;font-size:13.5px}
+.chk ul{margin:0;font-size:13.8px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <div class="brand">医療情報基礎知識検定 <span>図解テキスト</span></div>
+  <a class="back" href="index.html">学習アプリへ →</a>
+</div></header>
+
+<div class="wrap">
+<nav class="toc">
+  <b>第1部　医療の制度と現場</b>
+  <a href="#c1">1. 医療制度と医療関連法規</a>
+  <a href="#c2">2. 病院業務と運営管理</a>
+  <a href="#c3">3. 医療情報の特性と情報倫理</a>
+  <b>第2部　IT（英語が苦手な人向け）</b>
+  <a href="#c4">4. コンピュータの基礎</a>
+  <a href="#c5">5. 情報システムの基盤技術</a>
+  <a href="#c6">6. 医療情報システム</a>
+  <a href="#c7">7. 標準化とデータ分析</a>
+  <b>まとめ</b>
+  <a href="#abbrlist">略語ぜんぶ読み解き表</a>
+</nav>
+
+<main>
+<h1 class="tt">図解テキスト</h1>
+<p class="lead">用語集を読む前に、まず「全体の形」をつかむための本です。図で構造を見て、表で違いを比べ、英語の略語は単語ごとに日本語に分解して覚えます。細かい数字は用語集と学習アプリで詰めてください。</p>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+<marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 z" fill="var(--ok)"/></marker>
+<marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 z" fill="var(--sub)"/></marker>
+</defs></svg>
+
+<section class="ch" id="c1">
+<h2><i>1</i>医療制度と医療関連法規</h2>
+
+<p>この章は「<strong>誰が誰にお金を払い、誰が誰を監督しているか</strong>」の地図を持つと一気に楽になります。法律名の丸暗記より、まず全体の流れです。</p>
+
+<h3>1-1　保険診療は「三者関係」でできている</h3>
+<p>日本の医療は、患者が窓口で払うのは費用の一部だけで、残りは保険者が払います。ただし保険者が直接チェックするのではなく、間に<span class="kw">審査支払機関</span>が入ります。この4者の関係が最頻出です。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="20" y="110" width="150" height="66" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="95" y="138" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">患者</text>
+ <text x="95" y="158" text-anchor="middle" font-size="11.5" fill="var(--sub)">（被保険者）</text>
+ <rect x="290" y="110" width="170" height="66" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="375" y="138" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--ink)">保険医療機関</text>
+ <text x="375" y="158" text-anchor="middle" font-size="11.5" fill="var(--sub)">病院・診療所・薬局</text>
+ <rect x="565" y="25" width="175" height="62" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="652" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">審査支払機関</text>
+ <text x="652" y="70" text-anchor="middle" font-size="11" fill="var(--sub)">支払基金／国保連合会</text>
+ <rect x="565" y="205" width="175" height="62" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="652" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">保険者</text>
+ <text x="652" y="250" text-anchor="middle" font-size="11" fill="var(--sub)">健保組合・協会けんぽ・市町村</text>
+ <line x1="172" y1="128" x2="286" y2="128" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ar)"/>
+ <text x="229" y="120" text-anchor="middle" font-size="11.5" fill="var(--ink)">受診・一部負担金</text>
+ <line x1="286" y1="160" x2="172" y2="160" stroke="var(--ok)" stroke-width="1.6" marker-end="url(#ar2)"/>
+ <text x="229" y="177" text-anchor="middle" font-size="11.5" fill="var(--ink)">診療（現物給付）</text>
+ <line x1="462" y1="120" x2="562" y2="70" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ar)"/>
+ <text x="512" y="88" text-anchor="middle" font-size="11.5" fill="var(--ink)">レセプト請求</text>
+ <line x1="562" y1="55" x2="462" y2="105" stroke="var(--ok)" stroke-width="1.6" marker-end="url(#ar2)"/>
+ <text x="505" y="122" text-anchor="middle" font-size="11.5" fill="var(--ink)">支払</text>
+ <line x1="652" y1="90" x2="652" y2="201" stroke="var(--sub)" stroke-width="1.4" marker-end="url(#ar3)"/>
+ <text x="660" y="130" font-size="11.5" fill="var(--ink)">審査後に送付</text>
+ <text x="660" y="150" font-size="11" fill="var(--sub)">保険者が費用を負担</text>
+ <path d="M95 176 L95 275 L560 275" fill="none" stroke="var(--sub)" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+ <text x="300" y="292" text-anchor="middle" font-size="11.5" fill="var(--sub)">保険料</text>
+</svg>
+<figcaption>図1-1　保険診療のお金と情報の流れ</figcaption>
+</figure>
+
+<p>ここで押さえる用語は3つです。</p>
+<ul>
+<li><span class="kw">レセプト</span>（診療報酬明細書）＝医療機関が保険者に出す請求明細。<b>被保険者ごとに月単位</b>で作る。入院・外来・歯科・調剤の4種類。</li>
+<li><span class="kw">査定</span>＝請求額を<b>減らされる</b>こと（過剰請求・不必要な診療など）。</li>
+<li><span class="kw">返戻</span>＝記載に不備があり<b>突き返される</b>こと。書き直して再提出。</li>
+</ul>
+<div class="warnbox"><b>ひっかけ注意</b>　「査定」と「返戻」の入れ替えは定番です。<b>査定＝減点、返戻＝差し戻し</b>。読みは「へんれい」。</div>
+
+<h4>審査支払機関はどちらに出すのか</h4>
+<table>
+<tr><th>患者が入っている保険</th><th>提出先</th></tr>
+<tr><td>被用者保険（協会けんぽ・健保組合・船員保険・共済組合）</td><td>社会保険診療報酬支払基金</td></tr>
+<tr><td>国民健康保険・後期高齢者医療制度</td><td>国民健康保険団体連合会（都道府県ごと）</td></tr>
+</table>
+<p>覚え方は<b>「会社員は支払基金、地域の人は国保連」</b>。被用者保険は「雇われている人の保険」と読み下せます。</p>
+
+<h3>1-2　医療圏と救急は「3段ピラミッド」</h3>
+<p>医療圏も救急医療体制も、身近な順に一次→二次→三次と広がる同じ形です。ただし<b>単位が違う</b>ので混ぜないこと。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 740 250" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <text x="10" y="20" font-size="13" font-weight="bold" fill="var(--accent)">医療圏</text>
+ <rect x="10" y="30" width="330" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="22" y="52" font-size="13" font-weight="bold" fill="var(--ink)">三次医療圏</text>
+ <text x="140" y="52" font-size="12" fill="var(--sub)">おおむね都道府県</text>
+ <text x="22" y="72" font-size="11.5" fill="var(--sub)">高度・特殊な医療</text>
+ <rect x="40" y="90" width="270" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="52" y="112" font-size="13" font-weight="bold" fill="var(--ink)">二次医療圏</text>
+ <text x="170" y="112" font-size="12" fill="var(--sub)">複数市町村</text>
+ <text x="52" y="132" font-size="11.5" fill="var(--sub)">一般的な入院医療</text>
+ <rect x="70" y="150" width="210" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="82" y="172" font-size="13" font-weight="bold" fill="var(--ink)">一次医療圏</text>
+ <text x="196" y="172" font-size="12" fill="var(--sub)">市町村</text>
+ <text x="82" y="192" font-size="11.5" fill="var(--sub)">身近な医療</text>
+ <text x="10" y="230" font-size="11.5" fill="var(--warn)">医療計画に書くのは二次と三次だけ</text>
+ <text x="400" y="20" font-size="13" font-weight="bold" fill="var(--accent)">救急医療体制</text>
+ <rect x="400" y="30" width="330" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="412" y="52" font-size="13" font-weight="bold" fill="var(--ink)">三次救急</text>
+ <text x="505" y="52" font-size="12" fill="var(--sub)">救命救急センター</text>
+ <text x="412" y="72" font-size="11.5" fill="var(--sub)">重篤・高度な処置が必要</text>
+ <rect x="430" y="90" width="270" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="442" y="112" font-size="13" font-weight="bold" fill="var(--ink)">二次救急</text>
+ <text x="535" y="112" font-size="12" fill="var(--sub)">病院群輪番制病院</text>
+ <text x="442" y="132" font-size="11.5" fill="var(--sub)">入院・手術が必要</text>
+ <rect x="460" y="150" width="210" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="472" y="172" font-size="13" font-weight="bold" fill="var(--ink)">初期（一次）救急</text>
+ <text x="472" y="192" font-size="11.5" fill="var(--sub)">休日・夜間急患センター</text>
+ <text x="400" y="230" font-size="11.5" fill="var(--warn)">救命救急センターと救急救命士は語順が逆</text>
+</svg>
+<figcaption>図1-2　医療圏と救急医療体制はどちらも3層</figcaption>
+</figure>
+
+<h3>1-3　災害時のトリアージは色で覚える</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="20" width="165" height="90" rx="9" fill="#F25F5C" opacity=".18"/>
+ <rect x="10" y="20" width="165" height="90" rx="9" fill="none" stroke="#F25F5C" stroke-width="2"/>
+ <text x="92" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">カテゴリ I ／ 赤</text>
+ <text x="92" y="68" text-anchor="middle" font-size="12.5" fill="var(--ink)">最優先治療群</text>
+ <text x="92" y="90" text-anchor="middle" font-size="11.5" fill="var(--sub)">生命に関わる重篤</text>
+ <rect x="188" y="20" width="165" height="90" rx="9" fill="#E8A33D" opacity=".18"/>
+ <rect x="188" y="20" width="165" height="90" rx="9" fill="none" stroke="#E8A33D" stroke-width="2"/>
+ <text x="270" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">カテゴリ II ／ 黄</text>
+ <text x="270" y="68" text-anchor="middle" font-size="12.5" fill="var(--ink)">待機的治療群</text>
+ <text x="270" y="90" text-anchor="middle" font-size="11.5" fill="var(--sub)">早期に治療すべき</text>
+ <rect x="366" y="20" width="165" height="90" rx="9" fill="#00A73C" opacity=".18"/>
+ <rect x="366" y="20" width="165" height="90" rx="9" fill="none" stroke="#00A73C" stroke-width="2"/>
+ <text x="448" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">カテゴリ III ／ 緑</text>
+ <text x="448" y="68" text-anchor="middle" font-size="12.5" fill="var(--ink)">保留群</text>
+ <text x="448" y="90" text-anchor="middle" font-size="11.5" fill="var(--sub)">今すぐの処置は不要</text>
+ <rect x="544" y="20" width="165" height="90" rx="9" fill="#5b6b7c" opacity=".22"/>
+ <rect x="544" y="20" width="165" height="90" rx="9" fill="none" stroke="#5b6b7c" stroke-width="2"/>
+ <text x="626" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">カテゴリ 0 ／ 黒</text>
+ <text x="626" y="68" text-anchor="middle" font-size="12.5" fill="var(--ink)">死亡群</text>
+ <text x="626" y="90" text-anchor="middle" font-size="11.5" fill="var(--sub)">救命の見込みなし</text>
+</svg>
+<figcaption>図1-3　トリアージ・タグ（通常は右手首に装着）</figcaption>
+</figure>
+<p>タグは「重症度と緊急度で<b>治療・搬送の優先順位を決める</b>」ためのもので、番号（0→I→II→III）と色の対応がそのまま問われます。</p>
+
+<h3>1-4　法律は「目的の1行」で覚える</h3>
+<table>
+<tr><th>法律</th><th>ひとことで言うと</th></tr>
+<tr><td>医療法</td><td>病院という「入れ物」のルール。医療提供体制、医療計画、医療安全、施設の人的・物的条件</td></tr>
+<tr><td>医師法／薬剤師法／保助看法</td><td>「人」のルール。資格・免許・業務・義務</td></tr>
+<tr><td>薬機法</td><td>「モノ」のルール。医薬品・医療機器の品質・有効性・安全性</td></tr>
+<tr><td>健康保険法／国民健康保険法</td><td>「お金」のルール。誰が保険料を払い、誰が給付を受けるか</td></tr>
+<tr><td>療養担当規則</td><td>保険診療の<b>やり方</b>のルール（厚生労働省令）</td></tr>
+<tr><td>高齢者医療確保法</td><td>後期高齢者医療制度（75歳以上）＋<b>特定健診・特定保健指導の根拠法</b></td></tr>
+<tr><td>介護保険法</td><td>保険者は<b>市町村・特別区</b>、被保険者は<b>40歳以上</b></td></tr>
+<tr><td>次世代医療基盤法</td><td>医療データを<b>匿名加工・仮名加工</b>して研究開発に使うための法律</td></tr>
+</table>
+
+<div class="warnbox"><b>ひっかけ注意</b>　特定健診の根拠法を「健康増進法」とする選択肢が定番。正しくは<b>高齢者医療確保法</b>（対象は40〜74歳）。健康増進法は受動喫煙防止や国民健康・栄養調査の法律です。</div>
+
+<h3>1-5　業務独占と名称独占</h3>
+<p>言葉のとおりに読めば迷いません。<b>業務独占＝その仕事は有資格者しかできない</b>、<b>名称独占＝その名前は有資格者しか名乗れない</b>。</p>
+<table>
+<tr><th>区分</th><th>職種</th></tr>
+<tr><td>業務独占＋名称独占</td><td>医師、歯科医師、薬剤師、看護師、准看護師、助産師、診療放射線技師</td></tr>
+<tr><td>名称独占のみ</td><td><b>保健師</b>、理学療法士、作業療法士、言語聴覚士、視能訓練士、臨床工学技士、臨床検査技師、救急救命士、管理栄養士、栄養士、社会福祉士、介護福祉士、精神保健福祉士、公認心理師</td></tr>
+<tr><td>国家資格ではない</td><td>ケアマネージャ（公的資格）、医療情報技師・診療情報管理士・医療事務（民間資格）</td></tr>
+</table>
+<div class="note"><b>覚え方</b>　保健師だけ業務独占がありません。保健指導そのものは誰でもできるが、<b>保健師と名乗れない</b>のです。守秘義務も、医師・歯科医師・薬剤師・<b>助産師は刑法</b>、それ以外は各根拠法、と分かれます（栄養士・管理栄養士・ケアマネには規定なし）。</div>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>レセプトの提出先を、被用者保険と国保で言い分けられるか</li>
+<li>査定と返戻を逆に覚えていないか</li>
+<li>医療計画に書くのは二次・三次医療圏だけ、と言えるか</li>
+<li>5疾病6事業の6事業目＝新興感染症等（第8次医療計画・2024年度〜）</li>
+<li>トリアージの色と番号（0黒／I赤／II黄／III緑）</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c2">
+<h2><i>2</i>病院業務と病院の運営管理</h2>
+
+<h3>2-1　病院の部門は「患者に近いか、支えているか」</h3>
+<p>部門名は多いですが、並べ方は単純です。患者が直接行く<b>外来・入院</b>があり、それを検査や手術で支える<b>中央診療部門</b>があり、さらに全体を支える<b>事務・管理部門</b>がある、という3層です。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 740 330" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="15" y="15" width="710" height="88" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="30" y="38" font-size="13" font-weight="bold" fill="var(--accent)">患者が直接かかわる部門</text>
+ <text x="30" y="63" font-size="13" fill="var(--ink)">外来診療部門　／　入院診療部門（病棟）　／　救急部門</text>
+ <text x="30" y="87" font-size="11.5" fill="var(--sub)">医師は外来と病棟を兼務することが多い。看護師・事務職員は外来専従が多い</text>
+ <rect x="15" y="118" width="710" height="118" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="30" y="141" font-size="13" font-weight="bold" fill="var(--accent2)">中央診療部門（各診療科の診断・治療を支える）</text>
+ <text x="30" y="166" font-size="12.5" fill="var(--ink)">臨床検査　病理検査　画像診断（放射線）　放射線治療　内視鏡</text>
+ <text x="30" y="188" font-size="12.5" fill="var(--ink)">血液浄化　輸血　手術　集中治療　リハビリテーション　薬剤　中央材料</text>
+ <text x="30" y="212" font-size="11.5" fill="var(--sub)">この名前の部署が実在するわけではなく、支援部門の総称という点が問われる</text>
+ <text x="30" y="230" font-size="11.5" fill="var(--sub)">輸血部門では交叉適合試験（クロスマッチテスト）を行う</text>
+ <rect x="15" y="251" width="710" height="66" rx="10" fill="var(--box3)" stroke="var(--line)" stroke-width="1.5"/>
+ <text x="30" y="274" font-size="13" font-weight="bold" fill="var(--ink)">管理・事務部門</text>
+ <text x="30" y="299" font-size="12.5" fill="var(--ink)">経営企画　医療情報　医事会計　診療情報管理　医療安全管理　地域医療連携　物流管理（SPD）</text>
+</svg>
+<figcaption>図2-1　病院の部門構成</figcaption>
+</figure>
+
+<div class="note"><b>SPD</b>（Supply Processing and Distribution＝供給・加工・分配）は、医療材料を<b>中央で一元管理して各部門に払い出す仕組み</b>。各部門が在庫を持つと余るのでコスト削減になる、という理屈まで押さえます。</div>
+
+<h3>2-2　診療の流れと言葉</h3>
+<figure class="fig">
+<svg viewBox="0 0 740 150" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <g font-size="12.5">
+ <rect x="8" y="40" width="92" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="54" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">受付</text>
+ <text x="54" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">新患／初診／再診</text>
+ <rect x="115" y="40" width="92" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="161" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">医療面接</text>
+ <text x="161" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">問診</text>
+ <rect x="222" y="40" width="102" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="273" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">理学的診察</text>
+ <text x="273" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">視診・打診・聴診・触診</text>
+ <rect x="339" y="40" width="92" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="385" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">検査</text>
+ <text x="385" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">検体／生理機能</text>
+ <rect x="446" y="40" width="92" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="492" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">診断</text>
+ <text x="492" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">鑑別→確定</text>
+ <rect x="553" y="40" width="92" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="599" y="62" text-anchor="middle" fill="var(--ink)" font-weight="bold">治療</text>
+ <text x="599" y="80" text-anchor="middle" fill="var(--sub)" font-size="11">投薬・注射・処置・手術</text>
+ <rect x="660" y="40" width="72" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="696" y="70" text-anchor="middle" fill="var(--ink)" font-weight="bold">会計</text>
+ </g>
+ <g stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ar)">
+ <line x1="102" y1="66" x2="112" y2="66"/><line x1="209" y1="66" x2="219" y2="66"/>
+ <line x1="326" y1="66" x2="336" y2="66"/><line x1="433" y1="66" x2="443" y2="66"/>
+ <line x1="540" y1="66" x2="550" y2="66"/><line x1="647" y1="66" x2="657" y2="66"/>
+ </g>
+ <text x="8" y="122" font-size="11.5" fill="var(--sub)">理学的診察の「理学」は physical の誤訳で、本来は「身体的診察」。物理学とは無関係</text>
+ <text x="8" y="142" font-size="11.5" fill="var(--sub)">検体検査＝採った材料を調べる／生理機能検査＝身体を直接調べる（心電図・脳波・呼吸機能）</text>
+</svg>
+<figcaption>図2-2　診療の過程</figcaption>
+</figure>
+
+<p><span class="kw">クリニカルパス</span>は治療の工程表です。構成要素は<b>時間軸・ケア介入（タスク）・アウトカム・バリアンス</b>の4つ。アウトカムが達成目標、そこに<b>届かなかったことがバリアンス</b>です。</p>
+
+<h3>2-3　経営指標は「分母と分子」で見る</h3>
+<p>数字の指標は式を丸暗記せず、何を何で割っているかを見ると意味がつながります。</p>
+<table>
+<tr><th>指標</th><th>式</th><th>意味</th></tr>
+<tr><td>平均在院日数</td><td>延べ入院患者数 ÷ {(新入院＋退院)×0.5}</td><td>1人あたり何日入院しているか</td></tr>
+<tr><td>病床利用率</td><td>在院患者延べ数 ÷（実働病床数×日数）×100</td><td>ベッドがどれだけ埋まっているか</td></tr>
+<tr><td>病床稼働率</td><td>（在院患者延べ数＋<b>退院患者延べ数</b>）÷（実働病床数×日数）×100</td><td>退院を足すので<b>100％を超えうる</b></td></tr>
+<tr><td>病床回転率</td><td>365 ÷ 平均在院日数</td><td>1床を1年で何人が使ったか</td></tr>
+</table>
+<div class="warnbox"><b>ここが頻出</b>　利用率と稼働率の違いは「<b>退院患者を足すかどうか</b>」だけ。同じ日に退院と入院があるとその病床は2人分と数えるため、稼働率は100％超になることがあり、<b>一般に利用率より高くなります</b>。</div>
+
+<h4>財務三表</h4>
+<table>
+<tr><th>表</th><th>英語</th><th>何が分かるか</th></tr>
+<tr><td>貸借対照表</td><td>BS（Balance Sheet）</td><td><b>ある時点</b>の資産・負債・純資産（財産の状態）</td></tr>
+<tr><td>損益計算書</td><td>PL（Profit and Loss statement）</td><td><b>一定期間</b>の収支・損益（もうかったか）</td></tr>
+<tr><td>キャッシュフロー計算書</td><td>CF（Cash Flow statement）</td><td>現金の入りと出（手元の現金）</td></tr>
+</table>
+<p>固定費は<b>患者数に関係なくかかる</b>費用（設備・医療機器・人件費）、変動費は<b>患者数で増減する</b>費用（医薬品費・医療材料費・外注費）。売上高と総費用が一致する点が損益分岐点です。医療の質の評価は<b>ドナベディアン・モデル</b>（構造・過程・成果）、病院組織の外部評価は<b>日本医療機能評価機構</b>の病院機能評価です。</p>
+
+<h3>2-4　医療安全</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <polygon points="350,15 420,70 280,70" fill="#F25F5C" opacity=".25"/>
+ <polygon points="350,15 420,70 280,70" fill="none" stroke="#F25F5C" stroke-width="1.6"/>
+ <text x="440" y="50" font-size="13" font-weight="bold" fill="var(--ink)">1件</text>
+ <text x="482" y="50" font-size="12.5" fill="var(--sub)">重大な事故・災害</text>
+ <polygon points="280,70 420,70 470,125 230,125" fill="#E8A33D" opacity=".25"/>
+ <polygon points="280,70 420,70 470,125 230,125" fill="none" stroke="#E8A33D" stroke-width="1.6"/>
+ <text x="490" y="105" font-size="13" font-weight="bold" fill="var(--ink)">29件</text>
+ <text x="542" y="105" font-size="12.5" fill="var(--sub)">軽微な事故・災害</text>
+ <polygon points="230,125 470,125 520,180 180,180" fill="#00A73C" opacity=".22"/>
+ <polygon points="230,125 470,125 520,180 180,180" fill="none" stroke="#00A73C" stroke-width="1.6"/>
+ <text x="540" y="160" font-size="13" font-weight="bold" fill="var(--ink)">300件</text>
+ <text x="598" y="160" font-size="12.5" fill="var(--sub)">ヒヤリハット</text>
+ <text x="10" y="196" font-size="11.5" fill="var(--sub)">重大事故を防ぐには、いちばん下のヒヤリハットの段階で手を打つ</text>
+</svg>
+<figcaption>図2-3　ハインリッヒの法則（1：29：300）</figcaption>
+</figure>
+
+<div class="abbr">
+<div class="h">SHEL(L) モデル ― 事故の原因を4つの面から見る</div>
+<table>
+<tr><td class="e">S ＝ software</td><td class="j">ソフト面。手順書・運用規定・教育プログラム</td></tr>
+<tr><td class="e">H ＝ hardware</td><td class="j">ハード面。装置・機材</td></tr>
+<tr><td class="e">E ＝ environment</td><td class="j">環境。温湿度・インフラ</td></tr>
+<tr><td class="e">L ＝ liveware</td><td class="j">人。当事者（本人）と周囲の関係者（他者）</td></tr>
+</table>
+<div class="r">医療は人が中心なので、本人と他者の2つのLを書いて<b>SHELL</b>とすることが多い。</div>
+</div>
+
+<div class="abbr">
+<div class="h">4M4E 分析 ― 4つの視点で原因を探り、4つの視点で対策する</div>
+<table>
+<tr><td class="e">4M</td><td class="j">Man（人）／Machine（機器）／Media（環境）／Management（管理）</td></tr>
+<tr><td class="e">4E</td><td class="j">Education（教育）／Engineering（技術）／Enforcement（徹底）／Example（規範・事例）</td></tr>
+</table>
+<div class="r">Money は入りません。ここがひっかけです。</div>
+</div>
+
+<p><span class="kw">三点認証</span>は注射などの実施時に「<b>どの薬剤を（オーダ）・誰に（患者）・誰が（実施者）</b>」を照合する方式。患者認証はリストバンドのバーコード、実施者認証は名札で行います。インシデント（＝あるべき状態から外れた）とアクシデント（＝医療事故と同義）の順序も押さえます。</p>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>病床利用率と稼働率の違いを「退院患者を足すか」で説明できるか</li>
+<li>ICUは看護師1人に患者2人、NICUは1人に3人</li>
+<li>ハインリッヒ＝1：29：300、4Mに Money は入らない</li>
+<li>クリニカルパスの4要素（時間軸・タスク・アウトカム・バリアンス）</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c3">
+<h2><i>3</i>医療情報の特性と医療の情報倫理</h2>
+
+<h3>3-1　診療録と診療記録は別物</h3>
+<p><span class="kw">診療録</span>（カルテ）は<b>医師が書く、医師法で義務づけられた記録</b>。<span class="kw">診療記録</span>はそれを含む<b>もっと広い総称</b>で、看護記録・処方箋・検査所見・画像なども入ります。</p>
+
+<table>
+<tr><th>記録</th><th>保存期間</th><th>根拠法</th></tr>
+<tr><td>診療録（カルテ）</td><td><b>5年</b></td><td>医師法・歯科医師法</td></tr>
+<tr><td>調剤済み処方箋・調剤録</td><td><b>3年</b></td><td>薬剤師法</td></tr>
+<tr><td>照射録</td><td><b>2年</b></td><td>診療放射線技師法</td></tr>
+<tr><td>診療に関する諸記録</td><td><b>2年</b></td><td>医療法施行規則</td></tr>
+<tr><td>特定生物由来製品の記録</td><td><b>20年</b></td><td>薬機法施行規則</td></tr>
+</table>
+<div class="note"><b>覚え方</b>　カルテだけ5年、薬は3年、放射線と諸記録は2年、血液製剤だけ飛び抜けて20年。数字の入れ替えが出題されます。</div>
+
+<h4>SOAP は書く順番がそのまま頭文字</h4>
+<div class="abbr">
+<div class="h">SOAP ― 診療録の書き方</div>
+<table>
+<tr><td class="e">S ＝ Subjective data</td><td class="j">主観的情報。<b>患者が言ったこと</b>（訴え）</td></tr>
+<tr><td class="e">O ＝ Objective data</td><td class="j">客観的情報。<b>医療者が見つけたこと</b>（所見・検査値）</td></tr>
+<tr><td class="e">A ＝ Assessment</td><td class="j">評価。<b>それをどう考えるか</b>（診断・考察）</td></tr>
+<tr><td class="e">P ＝ Plan</td><td class="j">計画。<b>これからどうするか</b>（治療方針・教育）</td></tr>
+</table>
+<div class="r">患者の話→医療者の観察→考え→方針、という自然な順番です。POMR（問題指向型診療記録）は、時系列ではなく<b>問題ごとに</b>整理する書き方。</div>
+</div>
+
+<h3>3-2　一次利用と二次利用</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="255" y="12" width="200" height="46" rx="9" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="355" y="41" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">集めた診療情報</text>
+ <line x1="300" y1="60" x2="180" y2="95" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <line x1="410" y1="60" x2="530" y2="95" stroke="var(--accent2)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <rect x="25" y="100" width="290" height="98" rx="9" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="42" y="124" font-size="13.5" font-weight="bold" fill="var(--accent)">一次利用</text>
+ <text x="130" y="124" font-size="12" fill="var(--sub)">その患者のために使う</text>
+ <text x="42" y="148" font-size="12.5" fill="var(--ink)">患者への説明／診断・治療方針の決定</text>
+ <text x="42" y="170" font-size="12.5" fill="var(--ink)">診療情報提供書の作成／レセプト作成</text>
+ <text x="42" y="190" font-size="11.5" fill="var(--sub)">実名のまま使う</text>
+ <rect x="395" y="100" width="300" height="98" rx="9" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="412" y="124" font-size="13.5" font-weight="bold" fill="var(--accent2)">二次利用</text>
+ <text x="500" y="124" font-size="12" fill="var(--sub)">その患者以外のために使う</text>
+ <text x="412" y="148" font-size="12.5" fill="var(--ink)">統計・疫学研究／病院経営の分析</text>
+ <text x="412" y="170" font-size="12.5" fill="var(--ink)">医療政策の立案／公衆衛生・危機管理</text>
+ <text x="412" y="190" font-size="11.5" fill="var(--ng)">匿名化して使う必要がある</text>
+</svg>
+<figcaption>図3-1　一次利用と二次利用の分かれ目は「その患者本人のためかどうか」</figcaption>
+</figure>
+<div class="warnbox"><b>ひっかけ注意</b>　レセプト作成は<b>一次利用</b>です。事務作業だから二次利用、と考えると間違えます。判断基準は「目的がその患者の診断・治療（とその請求）かどうか」。</div>
+
+<h3>3-3　個人情報は「加工の度合い」で3段階</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 175" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="15" y="20" width="215" height="105" rx="10" fill="#F25F5C" opacity=".13"/>
+ <rect x="15" y="20" width="215" height="105" rx="10" fill="none" stroke="#F25F5C" stroke-width="1.6"/>
+ <text x="122" y="46" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">個人情報</text>
+ <text x="122" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">個人を識別できる</text>
+ <text x="122" y="94" text-anchor="middle" font-size="12" fill="var(--ink)">氏名・生年月日・住所</text>
+ <text x="122" y="114" text-anchor="middle" font-size="12" fill="var(--ink)">マイナンバー・指紋 ほか</text>
+ <rect x="252" y="20" width="215" height="105" rx="10" fill="#E8A33D" opacity=".13"/>
+ <rect x="252" y="20" width="215" height="105" rx="10" fill="none" stroke="#E8A33D" stroke-width="1.6"/>
+ <text x="359" y="46" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">仮名加工情報</text>
+ <text x="359" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">他の情報と照合しなければ</text>
+ <text x="359" y="88" text-anchor="middle" font-size="12" fill="var(--sub)">単体では特定できない</text>
+ <text x="359" y="114" text-anchor="middle" font-size="11.5" fill="var(--ink)">2020年改正で新設</text>
+ <rect x="489" y="20" width="215" height="105" rx="10" fill="#00A73C" opacity=".13"/>
+ <rect x="489" y="20" width="215" height="105" rx="10" fill="none" stroke="#00A73C" stroke-width="1.6"/>
+ <text x="596" y="46" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">匿名加工情報</text>
+ <text x="596" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">復元できないよう加工</text>
+ <text x="596" y="88" text-anchor="middle" font-size="12" fill="var(--sub)">本人同意なしで第三者提供可</text>
+ <text x="596" y="114" text-anchor="middle" font-size="11.5" fill="var(--ink)">2015年改正で創設</text>
+ <line x1="234" y1="72" x2="248" y2="72" stroke="var(--sub)" stroke-width="1.5" marker-end="url(#ar3)"/>
+ <line x1="471" y1="72" x2="485" y2="72" stroke="var(--sub)" stroke-width="1.5" marker-end="url(#ar3)"/>
+ <text x="15" y="160" font-size="11.5" fill="var(--sub)">要配慮個人情報（病歴など）は取得に原則本人同意が必要で、オプトアウトによる第三者提供は認められない</text>
+</svg>
+<figcaption>図3-2　加工が進むほど自由に使えるが、情報の価値は落ちる</figcaption>
+</figure>
+
+<p><span class="kw">オプトアウト</span>は「<b>断らなければやってよい</b>」、<span class="kw">オプトイン</span>は「<b>承諾がなければやってはいけない</b>」。out＝抜ける、in＝入る、と考えると迷いません。</p>
+
+<h4>倫理の宣言・綱領は「誰を守るか」で分ける</h4>
+<table>
+<tr><th>名称</th><th>年</th><th>守る対象</th></tr>
+<tr><td>ヒポクラテスの誓い</td><td>紀元前</td><td>医師の職業倫理の原点</td></tr>
+<tr><td>ニュルンベルク綱領</td><td>1947</td><td><b>研究の被験者</b>（ナチスの人体実験への反省）</td></tr>
+<tr><td>ジュネーブ宣言</td><td>1948</td><td>ヒポクラテスの誓いの<b>現代版</b></td></tr>
+<tr><td>ヘルシンキ宣言</td><td>1964</td><td><b>研究の被験者</b>（ニュルンベルク綱領がもと）</td></tr>
+<tr><td>リスボン宣言</td><td>1981</td><td><b>患者の権利</b>（11項目）</td></tr>
+</table>
+<div class="note"><b>整理のコツ</b>　被験者を守るのがニュルンベルクとヘルシンキ、患者を守るのがリスボン、医師の心構えがヒポクラテスとジュネーブ。この3グループで覚えます。</div>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>診療録は5年、照射録は2年、特定生物由来製品は20年</li>
+<li>3文書＝診療情報提供書・退院時サマリー・健診結果報告書／6情報＝傷病名・アレルギー・感染症・薬剤禁忌・検査・処方</li>
+<li>レセプト作成は一次利用</li>
+<li>リスボン＝患者の権利、ヘルシンキ＝研究の被験者</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c4">
+<h2><i>4</i>コンピュータの基礎</h2>
+<div class="note"><b>この章からの読み方</b>　IT用語の9割は<b>英単語の頭文字</b>です。意味が分からないのは英語だからで、難しいからではありません。以下、略語は<b>単語ごとに区切って日本語をあてる</b>形で示します。単語の意味さえ分かれば、用語の意味はだいたい自力で復元できます。</div>
+
+<h3>4-1　情報の単位</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 190" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="20" y="18" width="150" height="60" rx="9" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="95" y="42" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">1ビット</text>
+ <text x="95" y="63" text-anchor="middle" font-size="11.5" fill="var(--sub)">0 か 1 の2通り</text>
+ <line x1="172" y1="48" x2="212" y2="48" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <text x="192" y="38" text-anchor="middle" font-size="11" fill="var(--sub)">×8</text>
+ <rect x="216" y="18" width="150" height="60" rx="9" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="291" y="42" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--ink)">1バイト</text>
+ <text x="291" y="63" text-anchor="middle" font-size="11.5" fill="var(--sub)">8ビット＝256通り</text>
+ <text x="400" y="35" font-size="12.5" fill="var(--ink)">N ビットで表せるのは 2 の N 乗 通り</text>
+ <text x="400" y="57" font-size="12.5" fill="var(--sub)">2ビット→4、3ビット→8、8ビット→256</text>
+ <text x="400" y="77" font-size="12.5" fill="var(--sub)">bit は binary digit（2進の桁）の略</text>
+ <rect x="20" y="98" width="680" height="76" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="36" y="121" font-size="12.5" font-weight="bold" fill="var(--ink)">接頭辞は 1,024 倍ずつ（2の10乗ずつ）上がる</text>
+ <text x="36" y="146" font-size="13" fill="var(--ink)">KB（キロ）→ MB（メガ）→ GB（ギガ）→ TB（テラ）→ PB（ペタ）→ EB（エクサ）</text>
+ <text x="36" y="166" font-size="11.5" fill="var(--sub)">1KB＝1,024B　1MB＝1,024KB　1GB＝1,024MB　1TB＝1,024GB</text>
+</svg>
+<figcaption>図4-1　ビットとバイト</figcaption>
+</figure>
+
+<table>
+<tr><th>単位</th><th>もとの英語</th><th>読み下すと</th><th>何を測るか</th></tr>
+<tr><td>bps</td><td>bit per second</td><td>1秒あたりのビット数</td><td><b>通信の速さ</b></td></tr>
+<tr><td>dpi</td><td>dot per inch</td><td>1インチあたりの点の数</td><td><b>印刷・スキャンの細かさ</b>（解像度）</td></tr>
+<tr><td>Hz</td><td>hertz</td><td>1秒あたりの波の数</td><td><b>クロック周波数</b>など</td></tr>
+<tr><td>pixel</td><td>picture element</td><td>画像の要素</td><td><b>画素</b>。画面を構成する最小単位</td></tr>
+</table>
+<div class="note"><b>per は「〜あたり」</b>　bps も dpi も「per」が入っています。ここさえ読めれば「1秒あたり何ビット」「1インチあたり何ドット」と自力で訳せます。</div>
+
+<h3>4-2　アナログをデジタルにする3ステップ</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 175" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="30" width="120" height="62" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="70" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">アナログ</text>
+ <text x="70" y="76" text-anchor="middle" font-size="11.5" fill="var(--sub)">連続した波</text>
+ <line x1="133" y1="61" x2="163" y2="61" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <rect x="167" y="30" width="150" height="62" rx="9" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="242" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">標本化（サンプリング）</text>
+ <text x="242" y="76" text-anchor="middle" font-size="11.5" fill="var(--sub)">一定時間ごとに値を拾う</text>
+ <line x1="320" y1="61" x2="350" y2="61" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <rect x="354" y="30" width="150" height="62" rx="9" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="429" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">量子化</text>
+ <text x="429" y="76" text-anchor="middle" font-size="11.5" fill="var(--sub)">とびとびの値で近似する</text>
+ <line x1="507" y1="61" x2="537" y2="61" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <rect x="541" y="30" width="165" height="62" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="623" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">符号化</text>
+ <text x="623" y="76" text-anchor="middle" font-size="11.5" fill="var(--sub)">2進数にして記録する</text>
+ <text x="10" y="122" font-size="12.5" fill="var(--ink)">アナログ ＝ 情報は欠けないが、伝送・処理で劣化やノイズに弱い</text>
+ <text x="10" y="145" font-size="12.5" fill="var(--ink)">デジタル ＝ 劣化やノイズに強いが、変換のときに情報が一部欠ける</text>
+ <text x="10" y="167" font-size="11.5" fill="var(--sub)">AD変換の A は Analog、D は Digital。A から D へ、の意味です</text>
+</svg>
+<figcaption>図4-2　AD変換の流れ</figcaption>
+</figure>
+
+<h4>圧縮</h4>
+<p><b>可逆圧縮</b>は元に完全に戻る（zip、lzh）。<b>非可逆圧縮</b>は完全には戻らないが小さくできる（JPEG、MPEG、MP3）。医用画像で「非可逆でよいか」が問題になるのは、戻らない＝<b>診断に必要な情報が消えるかもしれない</b>からです。</p>
+<table>
+<tr><th>形式</th><th>正式名称</th><th>特徴</th></tr>
+<tr><td>JPEG</td><td>Joint Photographic Experts Group</td><td>写真向け。劣化を許容するか選べる</td></tr>
+<tr><td>GIF</td><td>Graphics Interchange Format</td><td><b>最大256色</b>、背景の透過が可能。アイコン向け</td></tr>
+<tr><td>PNG</td><td>Portable Network Graphics</td><td><b>フルカラー</b>対応</td></tr>
+<tr><td>BMP</td><td>Bit MaP</td><td><b>非圧縮</b>なのでファイルが大きい</td></tr>
+<tr><td>TIFF</td><td>Tagged Image File Format</td><td>タグで情報を持てる。複数画像を1ファイルに</td></tr>
+<tr><td>CSV / TSV</td><td>Comma / Tab Separated Values</td><td>カンマ／タブ区切りのデータ</td></tr>
+</table>
+<div class="note"><b>JPEG と MPEG は開発した団体名がそのまま形式名</b>　Joint Photographic Experts Group（写真）、Moving Picture Experts Group（動画）。Photographic は写真、Moving Picture は動画です。</div>
+
+<h3>4-3　ハードウェア ― 五大装置</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="215" y="20" width="290" height="120" rx="10" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="6 4"/>
+ <text x="360" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--accent)">中央処理装置（CPU）</text>
+ <rect x="232" y="38" width="118" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="291" y="69" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">演算装置</text>
+ <rect x="368" y="38" width="118" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="427" y="69" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">制御装置</text>
+ <rect x="232" y="98" width="254" height="30" rx="8" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="359" y="118" text-anchor="middle" font-size="12.5" fill="var(--ink)">記憶装置（主記憶＋補助記憶）</text>
+ <rect x="20" y="55" width="150" height="52" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="95" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">入力装置</text>
+ <text x="95" y="99" text-anchor="middle" font-size="11" fill="var(--sub)">キーボード・スキャナ</text>
+ <rect x="550" y="55" width="150" height="52" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="625" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">出力装置</text>
+ <text x="625" y="99" text-anchor="middle" font-size="11" fill="var(--sub)">ディスプレイ・プリンタ</text>
+ <line x1="173" y1="81" x2="211" y2="81" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <line x1="509" y1="81" x2="546" y2="81" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar)"/>
+ <rect x="20" y="165" width="330" height="72" rx="9" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="36" y="188" font-size="12.5" font-weight="bold" fill="var(--accent)">主記憶装置</text>
+ <text x="36" y="209" font-size="12" fill="var(--ink)">速いが一時的・容量は少ない</text>
+ <text x="36" y="229" font-size="12" fill="var(--sub)">RAM（電源を切ると消える）</text>
+ <rect x="370" y="165" width="330" height="72" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="386" y="188" font-size="12.5" font-weight="bold" fill="var(--accent2)">補助記憶装置</text>
+ <text x="386" y="209" font-size="12" fill="var(--ink)">遅いが長期保存・容量は多い</text>
+ <text x="386" y="229" font-size="12" fill="var(--sub)">HDD・SSD・CD・DVD・SDメモリ・USBメモリ</text>
+</svg>
+<figcaption>図4-3　五大装置と記憶装置の2階層</figcaption>
+</figure>
+
+<div class="abbr">
+<div class="h">記憶と処理まわりの略語</div>
+<table>
+<tr><td class="e">CPU</td><td class="j">Central Processing Unit ＝ 中央／処理／装置。演算装置＋制御装置</td></tr>
+<tr><td class="e">GPU</td><td class="j">Graphics Processing Unit ＝ 画像／処理／装置。<b>大量データの並列処理</b>が得意でAIにも使われる</td></tr>
+<tr><td class="e">RAM</td><td class="j">Random Access Memory ＝ 自由に読み書きできる記憶。主記憶では電源を切ると消える</td></tr>
+<tr><td class="e">ROM</td><td class="j">Read Only Memory ＝ <b>読むだけ</b>の記憶。電源を切っても消えない</td></tr>
+<tr><td class="e">HDD</td><td class="j">Hard Disk Drive ＝ 硬い／円盤／駆動装置。<b>磁気</b>で記録。安くて大容量</td></tr>
+<tr><td class="e">SSD</td><td class="j">Solid State Drive ＝ 固体／状態／駆動装置。可動部がなく速く壊れにくいが<b>高価</b></td></tr>
+</table>
+<div class="r">Solid State は「固体の（動く部品がない）」という意味。HDD は円盤が回るが SSD は回らない、と読めます。</div>
+</div>
+
+<div class="abbr">
+<div class="h">信頼性・接続まわりの略語</div>
+<table>
+<tr><td class="e">RAID</td><td class="j">Redundant Array of Inexpensive Disks ＝ 冗長な／並び／安価な／ディスク。複数台をまとめて1台に見せる</td></tr>
+<tr><td class="e">NAS</td><td class="j">Network Attached Storage ＝ ネットワークに／つながった／記憶装置</td></tr>
+<tr><td class="e">UPS</td><td class="j">Uninterruptible Power Supply ＝ 途切れない／電源／供給。停電時にバッテリから給電</td></tr>
+<tr><td class="e">OCR</td><td class="j">Optical Character Reader ＝ 光学的／<b>文字</b>／読取装置</td></tr>
+<tr><td class="e">OMR</td><td class="j">Optical Mark Reader ＝ 光学的／<b>マーク</b>／読取装置。マークシートを読む</td></tr>
+<tr><td class="e">USB</td><td class="j">Universal Serial Bus ＝ 汎用／直列／伝送路</td></tr>
+<tr><td class="e">RFID</td><td class="j">Radio Frequency IDentification ＝ 電波／周波数／識別。ICタグを無線で読み書き</td></tr>
+</table>
+<div class="r">RAID の代表3種：<b>RAID0＝ストライピング</b>（分散して速く）、<b>RAID1＝ミラーリング</b>（同じものを2枚で安全に）、<b>RAID5＝分散＋パリティ</b>（速さと安全の両取り）。0は「安全性ゼロ」と覚えると取り違えません。</div>
+</div>
+
+<h3>4-4　ソフトウェアは4つの層</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="30" y="15" width="470" height="42" rx="8" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="46" y="41" font-size="13" font-weight="bold" fill="var(--ink)">アプリケーションソフトウェア</text>
+ <text x="280" y="41" font-size="11.5" fill="var(--sub)">電子カルテ・Excel・ブラウザ</text>
+ <rect x="30" y="63" width="470" height="42" rx="8" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="46" y="89" font-size="13" font-weight="bold" fill="var(--ink)">ミドルウェア</text>
+ <text x="280" y="89" font-size="11.5" fill="var(--sub)">OSとアプリの中間で機能を補助</text>
+ <rect x="30" y="111" width="470" height="42" rx="8" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="46" y="137" font-size="13" font-weight="bold" fill="var(--ink)">オペレーティングシステム（OS）</text>
+ <text x="280" y="137" font-size="11.5" fill="var(--sub)">メモリ管理・プロセス管理・周辺装置制御</text>
+ <rect x="30" y="159" width="470" height="42" rx="8" fill="var(--box3)" stroke="var(--line)" stroke-width="1.5"/>
+ <text x="46" y="185" font-size="13" font-weight="bold" fill="var(--ink)">ハードウェア</text>
+ <rect x="515" y="111" width="160" height="90" rx="8" fill="var(--box3)" stroke="var(--line)" stroke-width="1.5"/>
+ <text x="595" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">デバイスドライバ</text>
+ <text x="595" y="162" text-anchor="middle" font-size="11" fill="var(--sub)">OSと周辺機器の</text>
+ <text x="595" y="180" text-anchor="middle" font-size="11" fill="var(--sub)">橋渡しをする</text>
+</svg>
+<figcaption>図4-4　ソフトウェアの階層</figcaption>
+</figure>
+<p>OSの3大役割は<b>メモリ管理・プロセス管理・周辺装置の制御</b>。文書作成はアプリの仕事で、OSの役割ではありません。UNIX系OSは Linux・Solaris・<b>macOS</b> など。Windows は UNIX 系ではありません。</p>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>8ビット＝256通り、1GB＝1,024MB</li>
+<li>AD変換＝標本化→量子化→符号化</li>
+<li>RAID0＝速度、RAID1＝ミラーで安全、RAID5＝両取り</li>
+<li>OCRは文字、OMRはマーク（マークシート）</li>
+<li>複写式伝票を印刷できるのはドットインパクトプリンタだけ</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c5">
+<h2><i>5</i>情報システムの基盤技術</h2>
+
+<h3>5-1　ネットワーク機器は「どの住所を見るか」で決まる</h3>
+<p>ハブ・スイッチ・ルータの違いは、<b>宛先を判断するのに何を見ているか</b>だけです。ここが分かると一気に整理できます。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="15" y="15" width="220" height="105" rx="10" fill="var(--box3)" stroke="var(--line)" stroke-width="1.5"/>
+ <text x="32" y="40" font-size="13.5" font-weight="bold" fill="var(--ink)">ハブ（リピータハブ）</text>
+ <text x="32" y="62" font-size="11.5" fill="var(--sub)">宛先を見ない</text>
+ <text x="32" y="84" font-size="12" fill="var(--ink)">入ってきた以外の</text>
+ <text x="32" y="102" font-size="12" fill="var(--ink)">全ポートに配る</text>
+ <rect x="250" y="15" width="220" height="105" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="267" y="40" font-size="13.5" font-weight="bold" fill="var(--ink)">スイッチングハブ（L2）</text>
+ <text x="267" y="62" font-size="11.5" fill="var(--accent)">MACアドレスを見る</text>
+ <text x="267" y="84" font-size="12" fill="var(--ink)">宛先のポートにだけ</text>
+ <text x="267" y="102" font-size="12" fill="var(--ink)">転送する</text>
+ <rect x="485" y="15" width="220" height="105" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="502" y="40" font-size="13.5" font-weight="bold" fill="var(--ink)">ルータ（L3）</text>
+ <text x="502" y="62" font-size="11.5" fill="var(--accent2)">IPアドレスを見る</text>
+ <text x="502" y="84" font-size="12" fill="var(--ink)">違うネットワークへ</text>
+ <text x="502" y="102" font-size="12" fill="var(--ink)">中継する（経路制御）</text>
+ <rect x="15" y="140" width="690" height="88" rx="10" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="32" y="164" font-size="12.5" font-weight="bold" fill="var(--ink)">OSI参照モデル（7階層）のどこで働くか</text>
+ <text x="32" y="188" font-size="12" fill="var(--ink)">第2層 データリンク層 ＝ MACアドレス ＝ スイッチングハブ（L2スイッチ）</text>
+ <text x="32" y="210" font-size="12" fill="var(--ink)">第3層 ネットワーク層 ＝ IPアドレス ＝ ルータ・L3スイッチ</text>
+</svg>
+<figcaption>図5-1　ネットワーク機器の使い分け</figcaption>
+</figure>
+
+<table>
+<tr><th></th><th>MACアドレス</th><th>IPアドレス</th></tr>
+<tr><td>正式名称</td><td>Media Access Control address</td><td>Internet Protocol address</td></tr>
+<tr><td>たとえると</td><td>機器の<b>製造番号</b>（一生変わらない）</td><td><b>住所</b>（引っ越せば変わる）</td></tr>
+<tr><td>長さ</td><td><b>48ビット</b>（6バイト）＝16進数12桁</td><td>IPv4は<b>32ビット</b>／IPv6は<b>128ビット</b></td></tr>
+<tr><td>階層</td><td>第2層（データリンク層）</td><td>第3層（ネットワーク層）</td></tr>
+<tr><td>構成</td><td>前半3バイト＝メーカ、後半3バイト＝装置</td><td>ネットワークアドレス部＋ホストアドレス部</td></tr>
+</table>
+<div class="note"><b>覚え方</b>　MAC は機器に焼き付けられた番号なので<b>48ビットと固定</b>。IPv4 が足りなくなって作られたのが IPv6 で、32→128ビットに拡張されました。プライベートIPは建物内で自由に使える内線番号、グローバルIPは外線番号、というイメージです。</div>
+
+<h3>5-2　プロトコルは「何をする決まりか」で覚える</h3>
+<div class="abbr">
+<div class="h">よく出るプロトコル ― 最後の P は Protocol（手順・決まり）</div>
+<table>
+<tr><td class="e">HTTP</td><td class="j">HyperText Transfer Protocol ＝ ハイパーテキストを／転送する／決まり。Webの表示</td></tr>
+<tr><td class="e">HTTPS</td><td class="j">HTTP + Secure ＝ HTTPにSSL/TLSの暗号化を足したもの</td></tr>
+<tr><td class="e">SMTP</td><td class="j">Simple Mail Transfer Protocol ＝ メールを／<b>送る</b>／決まり</td></tr>
+<tr><td class="e">POP3</td><td class="j">Post Office Protocol ＝ 郵便局の決まり。メールを／<b>受け取る</b></td></tr>
+<tr><td class="e">IMAP4</td><td class="j">Internet Message Access Protocol ＝ メールを受け取る。<b>サーバ上で保存・管理できる</b></td></tr>
+<tr><td class="e">FTP</td><td class="j">File Transfer Protocol ＝ ファイルを／転送する／決まり</td></tr>
+<tr><td class="e">DHCP</td><td class="j">Dynamic Host Configuration Protocol ＝ 動的に／機器の／設定をする。IPアドレスを自動で配る</td></tr>
+<tr><td class="e">DNS</td><td class="j">Domain Name System ＝ ドメイン名／システム。名前とIPアドレスを変換する</td></tr>
+<tr><td class="e">TCP/IP</td><td class="j">Transmission Control Protocol ＝ 伝送を／制御する。順序制御・誤り制御で<b>信頼性</b>を確保</td></tr>
+</table>
+<div class="r"><b>送るのがSMTP、受けるのがPOP3とIMAP4</b>。S＝Send（送信）と語呂で結びつけると迷いません。DNS は電話帳、DHCP は受付で番号札を配る係、というイメージです。</div>
+</div>
+
+<div class="abbr">
+<div class="h">クラウドの3階層 ― as a Service ＝「サービスとして提供」</div>
+<table>
+<tr><td class="e">SaaS</td><td class="j">Software as a Service ＝ <b>ソフト</b>をサービスとして借りる（完成品を使うだけ）</td></tr>
+<tr><td class="e">PaaS</td><td class="j">Platform as a Service ＝ <b>開発・実行環境</b>を借りて、自分のプログラムを動かす</td></tr>
+<tr><td class="e">IaaS</td><td class="j">Infrastructure as a Service ＝ <b>OSまで</b>借りて、自分でシステムを組む</td></tr>
+</table>
+<div class="r">S→P→I の順に「借りる範囲が広く、自由度が高く、手間も増える」。反対に、自組織で全部持って運用するのが<b>オンプレミス</b>（on-premises＝自社の敷地内で）です。</div>
+</div>
+
+<h3>5-3　データベースは「表」で考える</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 215" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="120" y="30" width="440" height="130" rx="6" fill="none" stroke="var(--accent)" stroke-width="2"/>
+ <rect x="120" y="30" width="440" height="32" fill="var(--box)"/>
+ <text x="150" y="51" font-size="12.5" font-weight="bold" fill="var(--ink)">患者ID</text>
+ <text x="260" y="51" font-size="12.5" font-weight="bold" fill="var(--ink)">氏名</text>
+ <text x="380" y="51" font-size="12.5" font-weight="bold" fill="var(--ink)">生年月日</text>
+ <text x="490" y="51" font-size="12.5" font-weight="bold" fill="var(--ink)">血液型</text>
+ <line x1="120" y1="62" x2="560" y2="62" stroke="var(--accent)" stroke-width="1.5"/>
+ <line x1="120" y1="95" x2="560" y2="95" stroke="var(--line)"/>
+ <line x1="120" y1="128" x2="560" y2="128" stroke="var(--line)"/>
+ <line x1="240" y1="30" x2="240" y2="160" stroke="var(--line)"/>
+ <line x1="360" y1="30" x2="360" y2="160" stroke="var(--line)"/>
+ <line x1="470" y1="30" x2="470" y2="160" stroke="var(--line)"/>
+ <text x="150" y="84" font-size="12" fill="var(--sub)">000123</text>
+ <text x="260" y="84" font-size="12" fill="var(--sub)">山田 太郎</text>
+ <text x="380" y="84" font-size="12" fill="var(--sub)">1980-04-01</text>
+ <text x="490" y="84" font-size="12" fill="var(--sub)">A</text>
+ <rect x="122" y="96" width="436" height="31" fill="var(--accent)" opacity=".1"/>
+ <text x="150" y="117" font-size="12" fill="var(--sub)">000124</text>
+ <text x="260" y="117" font-size="12" fill="var(--sub)">佐藤 花子</text>
+ <text x="380" y="117" font-size="12" fill="var(--sub)">1975-11-20</text>
+ <text x="490" y="117" font-size="12" fill="var(--sub)">O</text>
+ <text x="340" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--accent)">テーブル（表全体）</text>
+ <text x="600" y="115" font-size="12.5" font-weight="bold" fill="var(--accent)">レコード</text>
+ <text x="600" y="133" font-size="11" fill="var(--sub)">＝横の行</text>
+ <line x1="565" y1="111" x2="595" y2="111" stroke="var(--accent)" stroke-width="1.3" marker-end="url(#ar)"/>
+ <text x="10" y="185" font-size="12.5" font-weight="bold" fill="var(--accent2)">カラム＝縦の列</text>
+ <line x1="60" y1="175" x2="60" y2="163" stroke="var(--accent2)" stroke-width="1.3" marker-end="url(#ar)"/>
+ <text x="200" y="185" font-size="12.5" fill="var(--sub)">フィールド＝表を構成する個々のデータ項目（マスの1つ）</text>
+ <text x="10" y="207" font-size="11.5" fill="var(--sub)">主キー＝レコードを1つに特定する列。重複もNULLも不可。1テーブルに1つだけ</text>
+ <text x="410" y="207" font-size="11.5" fill="var(--sub)">ユニークキー＝重複は不可だがNULLは可</text>
+</svg>
+<figcaption>図5-2　関係データベース（RDB）の用語</figcaption>
+</figure>
+
+<div class="abbr">
+<div class="h">ACID特性 ― トランザクションが守るべき4つの性質</div>
+<table>
+<tr><td class="e">A ＝ Atomicity</td><td class="j"><b>原子性</b>。全部実行されるか、まったく実行されないかのどちらか</td></tr>
+<tr><td class="e">C ＝ Consistency</td><td class="j"><b>一貫性</b>。実行の前後でデータの整合性が保たれる</td></tr>
+<tr><td class="e">I ＝ Isolation</td><td class="j"><b>独立性</b>。同時に実行されても互いに影響しない</td></tr>
+<tr><td class="e">D ＝ Durability</td><td class="j"><b>永続性</b>。完了後は障害が起きても消えない</td></tr>
+</table>
+<div class="r">Atom は「これ以上分けられないもの」。送金で「引き落としだけ成功して入金は失敗」が起きないのが原子性です。<b>排他ロック</b>＝更新中は他を触らせない、<b>デッドロック</b>＝互いに相手の解放を待って永久に進まない状態。</div>
+</div>
+
+<h3>5-4　情報セキュリティの3要素（CIA）</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="18" width="220" height="120" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="120" y="45" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--accent)">C 機密性</text>
+ <text x="120" y="66" text-anchor="middle" font-size="11.5" fill="var(--sub)">Confidentiality</text>
+ <text x="120" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">許可された人だけが</text>
+ <text x="120" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">アクセスできる</text>
+ <rect x="240" y="18" width="220" height="120" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="350" y="45" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--accent2)">I 完全性</text>
+ <text x="350" y="66" text-anchor="middle" font-size="11.5" fill="var(--sub)">Integrity</text>
+ <text x="350" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">壊れたり改ざんされず</text>
+ <text x="350" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">正確なまま保たれる</text>
+ <rect x="470" y="18" width="220" height="120" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="580" y="45" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--accent)">A 可用性</text>
+ <text x="580" y="66" text-anchor="middle" font-size="11.5" fill="var(--sub)">Availability</text>
+ <text x="580" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">必要なときに</text>
+ <text x="580" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">いつでも使える</text>
+</svg>
+<figcaption>図5-3　情報セキュリティの3要素。頭文字をとって CIA</figcaption>
+</figure>
+<p>available は「利用できる」。可用性は<b>「使える状態が保たれているか」</b>です。真正性・責任追跡性・否認防止・信頼性は「加えて維持することもある」特性で、<b>3要素には入りません</b>。</p>
+
+<table>
+<tr><th>用語</th><th>意味</th></tr>
+<tr><td>脅威</td><td>セキュリティを損なう<b>要因</b>（盗聴、なりすまし、改ざん、地震、故障）</td></tr>
+<tr><td>脆弱性</td><td>脅威につけこまれる<b>弱点</b></td></tr>
+<tr><td>リスク</td><td>脅威が脆弱性をついて<b>損害を与える可能性</b></td></tr>
+<tr><td>情報資産</td><td>守るべき対象。<b>紙媒体も含む</b></td></tr>
+</table>
+<div class="note"><b>3語の関係</b>　脅威（外からの攻撃）が脆弱性（こちらの弱点）をつくとリスク（被害の可能性）になる、という因果でつながっています。</div>
+
+<h3>5-5　暗号方式 ― 鍵が1本か2本か</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <text x="10" y="18" font-size="13.5" font-weight="bold" fill="var(--accent)">共通鍵暗号方式 ― 同じ鍵で閉めて、同じ鍵で開ける</text>
+ <rect x="10" y="30" width="120" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="70" y="52" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">送信者</text>
+ <text x="70" y="71" text-anchor="middle" font-size="11" fill="var(--sub)">平文</text>
+ <rect x="175" y="30" width="130" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="240" y="52" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">暗号化</text>
+ <text x="240" y="71" text-anchor="middle" font-size="11.5" fill="var(--accent)">共通鍵</text>
+ <rect x="350" y="30" width="110" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="405" y="61" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">暗号文</text>
+ <rect x="505" y="30" width="130" height="52" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="570" y="52" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">復号</text>
+ <text x="570" y="71" text-anchor="middle" font-size="11.5" fill="var(--accent)">共通鍵（同じもの）</text>
+ <g stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ar)">
+  <line x1="133" y1="56" x2="171" y2="56"/><line x1="308" y1="56" x2="346" y2="56"/><line x1="463" y1="56" x2="501" y2="56"/>
+ </g>
+ <path d="M240 86 Q405 118 570 86" fill="none" stroke="var(--ng)" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+ <text x="405" y="118" text-anchor="middle" font-size="11.5" fill="var(--ng)">この鍵を相手に渡さないといけない ← ここが弱点</text>
+
+ <line x1="10" y1="140" x2="710" y2="140" stroke="var(--line)"/>
+
+ <text x="10" y="168" font-size="13.5" font-weight="bold" fill="var(--accent2)">公開鍵暗号方式 ― 公開鍵で閉めて、秘密鍵で開ける</text>
+ <rect x="10" y="180" width="120" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="70" y="202" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">送信者</text>
+ <text x="70" y="221" text-anchor="middle" font-size="11" fill="var(--sub)">平文</text>
+ <rect x="175" y="180" width="130" height="52" rx="8" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="240" y="202" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">暗号化</text>
+ <text x="240" y="221" text-anchor="middle" font-size="11.5" fill="var(--accent2)">受信者の公開鍵</text>
+ <rect x="350" y="180" width="110" height="52" rx="8" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="405" y="211" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">暗号文</text>
+ <rect x="505" y="180" width="130" height="52" rx="8" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="570" y="202" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">復号</text>
+ <text x="570" y="221" text-anchor="middle" font-size="11.5" fill="var(--accent2)">受信者の秘密鍵</text>
+ <g stroke="var(--accent2)" stroke-width="1.4" marker-end="url(#ar)">
+  <line x1="133" y1="206" x2="171" y2="206"/><line x1="308" y1="206" x2="346" y2="206"/><line x1="463" y1="206" x2="501" y2="206"/>
+ </g>
+ <text x="10" y="262" font-size="12" fill="var(--ink)">公開鍵は誰に配ってもよい。開けられるのは秘密鍵を持つ本人だけなので、鍵を渡す問題が起きない</text>
+ <rect x="10" y="275" width="700" height="38" rx="8" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="24" y="299" font-size="12.5" fill="var(--ink)">逆に<tspan font-weight="bold">自分の秘密鍵</tspan>で暗号化すると、<tspan font-weight="bold">本人にしか作れない</tspan>ものができる。これが電子署名の原理</text>
+</svg>
+<figcaption>図5-4　共通鍵と公開鍵</figcaption>
+</figure>
+
+<table>
+<tr><th></th><th>共通鍵暗号方式</th><th>公開鍵暗号方式</th></tr>
+<tr><td>鍵</td><td>1種類（暗号化も復号も同じ）</td><td>2種類（公開鍵と秘密鍵のペア）</td></tr>
+<tr><td>鍵の受け渡し</td><td><b>必要</b>（ここが弱点）</td><td>不要</td></tr>
+<tr><td>安全性</td><td>低い</td><td><b>高い</b></td></tr>
+<tr><td>処理速度</td><td><b>速い</b>（アルゴリズムが単純）</td><td>遅い（アルゴリズムが複雑）</td></tr>
+</table>
+<div class="warnbox"><b>暗記の要点</b>　「<b>安全なほうが遅い</b>」と覚えると、4つの比較が一度に決まります。<br>用途の使い分けも、<b>暗号文を送る＝相手の公開鍵</b>／<b>署名する＝自分の秘密鍵</b>。「相手に届けたいなら相手の鍵、自分だと証明したいなら自分の鍵」と読み下せます。</div>
+
+<div class="abbr">
+<div class="h">電子署名と公開鍵基盤</div>
+<table>
+<tr><td class="e">電子署名</td><td class="j"><b>公開鍵暗号方式＋ハッシュ関数</b>。作成者が誰かと、改ざんされていないかを確認できる</td></tr>
+<tr><td class="e">ハッシュ関数</td><td class="j">文書から規則性のない<b>固定長の値</b>を作る手法。送信側と受信側で比べて改ざんを検出</td></tr>
+<tr><td class="e">PKI</td><td class="j">Public Key Infrastructure ＝ 公開／鍵／基盤。その公開鍵が本人のものだと証明する仕組み</td></tr>
+<tr><td class="e">CA</td><td class="j">Certification Authority ＝ 証明／機関。公開鍵証明書を発行する第三者機関</td></tr>
+<tr><td class="e">HPKI</td><td class="j">Healthcare PKI ＝ <b>保健医療福祉分野の</b>公開鍵基盤。医師など27の国家資格と5の管理者資格を証明。電子処方箋などで使う</td></tr>
+</table>
+<div class="r">電子署名は「暗号化」ではなく「<b>本人確認と改ざん検出</b>」が目的です。ここを取り違えないこと。</div>
+</div>
+
+<h3>5-6　マルウェアと攻撃の名前</h3>
+<table>
+<tr><th>名前</th><th>語源・意味</th><th>やること</th></tr>
+<tr><td>ワーム</td><td>worm＝虫</td><td>自分の複製を作って自己増殖する</td></tr>
+<tr><td>トロイの木馬</td><td>ギリシア神話</td><td>正体を偽って侵入し、内部から攻撃する</td></tr>
+<tr><td>ランサムウェア</td><td>ransom＝<b>身代金</b></td><td>ファイルを暗号化し、復号と引き換えに金銭を要求</td></tr>
+<tr><td>ボット</td><td>robot の略</td><td>攻撃者の指令を受けて他を攻撃する</td></tr>
+<tr><td>スパム</td><td>―</td><td>無差別・大量に送りつけるメール</td></tr>
+<tr><td>マクロウイルス</td><td>macro＝自動処理</td><td>Word/Excelのマクロ機能を悪用</td></tr>
+</table>
+<table>
+<tr><th>攻撃</th><th>読み解き</th></tr>
+<tr><td>DoS攻撃</td><td>Denial of Service＝サービスの<b>拒否</b>。大量のパケットで過負荷にして止める。多数から一斉に行うのがDDoS</td></tr>
+<tr><td>標的型攻撃</td><td>特定の組織を狙い、業務や取引先を装ったメールでマルウェアを送り込む</td></tr>
+<tr><td>ゼロデイ攻撃</td><td>脆弱性の発見から<b>修正プログラムが出るまでの間（ゼロ日目）</b>を狙う</td></tr>
+<tr><td>フィッシング</td><td>実在の企業を装って暗証番号等を釣り上げる。<b>綴りは phishing</b>（fishing ではない）</td></tr>
+<tr><td>踏み台</td><td>乗っ取られて、他への攻撃や迷惑メール配信に使われるコンピュータ</td></tr>
+</table>
+
+<div class="abbr">
+<div class="h">守りの側の略語</div>
+<table>
+<tr><td class="e">IDS</td><td class="j">Intrusion Detection System ＝ 侵入／<b>検知</b>／システム。見つけて警告する</td></tr>
+<tr><td class="e">IPS</td><td class="j">Intrusion Prevention System ＝ 侵入／<b>防止</b>／システム。見つけて<b>自動で防ぐ</b></td></tr>
+<tr><td class="e">DMZ</td><td class="j">DeMilitarized Zone ＝ 非武装／地帯。内と外の間に置き、Webサーバなどを設置する</td></tr>
+<tr><td class="e">VPN</td><td class="j">Virtual Private Network ＝ 仮想／専用／回線。公衆回線上に閉じた通信路を作る</td></tr>
+<tr><td class="e">SSL / TLS</td><td class="j">Secure Sockets Layer / Transport Layer Security ＝ 通信を暗号化するプロトコル</td></tr>
+<tr><td class="e">CSIRT</td><td class="j">Computer Security Incident Response Team ＝ 事故に／対応する／<b>チーム（組織）</b></td></tr>
+<tr><td class="e">CISO</td><td class="j">Chief Information Security Officer ＝ 最高情報セキュリティ責任者（<b>人</b>）</td></tr>
+</table>
+<div class="r">Detection（検知）と Prevention（防止）の違いがそのまま IDS と IPS の違い。CSIRT は組織、CISO は役職の人、という対比も出ます。</div>
+</div>
+
+<p>無線LANの暗号化は<b>WEP →（TKIPを使う）WPA → WPA2 → WPA3</b> の順に強くなります。WEPは脆弱性のため<b>使用禁止</b>、TKIPを使うWPAも非推奨。現在はAESを使うCCMPを採用したWPA2・WPA3です。</p>
+
+<h3>5-7　ユーザ管理と認証</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="20" width="215" height="95" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="117" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--accent)">記憶</text>
+ <text x="117" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">本人だけが知っている</text>
+ <text x="117" y="95" text-anchor="middle" font-size="12.5" fill="var(--ink)">パスワード・暗証番号</text>
+ <rect x="243" y="20" width="215" height="95" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="350" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--accent2)">生体情報</text>
+ <text x="350" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">本人そのもの</text>
+ <text x="350" y="95" text-anchor="middle" font-size="12.5" fill="var(--ink)">指紋・静脈・虹彩・顔</text>
+ <rect x="476" y="20" width="215" height="95" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="583" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--accent)">物理媒体</text>
+ <text x="583" y="70" text-anchor="middle" font-size="12" fill="var(--sub)">本人だけが持っている</text>
+ <text x="583" y="95" text-anchor="middle" font-size="12.5" fill="var(--ink)">ICカード・トークン</text>
+</svg>
+<figcaption>図5-5　認証の3要素。このうち2つ以上を組み合わせるのが多要素認証</figcaption>
+</figure>
+<p>ICカードとパスワード、指紋とパスワードなどが多要素認証の例です。<b>パスワードを2つ</b>使っても、同じ「記憶」の要素なので多要素にはなりません。<b>ワンタイムパスワード</b>は使い捨てなので、盗まれても再利用されません。</p>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>スイッチはMACアドレス（第2層）、ルータはIPアドレス（第3層）</li>
+<li>MACは48ビット、IPv4は32ビット、IPv6は128ビット</li>
+<li>メールは送信SMTP、受信POP3／IMAP4</li>
+<li>公開鍵は「安全だが遅い」、暗号は相手の公開鍵・署名は自分の秘密鍵</li>
+<li>CIAに真正性は含まれない（あれは電子保存の三原則）</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c6">
+<h2><i>6</i>医療情報システムの構成と機能</h2>
+
+<h3>6-1　病院情報システムの全体像</h3>
+<p>部門システムの名前は多いですが、構造は<b>「真ん中に電子カルテ／オーダエントリがあり、周りに部門システムがぶら下がり、最後に医事会計へ流れる」</b>の一本道です。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="8" y="8" width="704" height="324" rx="12" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="7 5"/>
+ <text x="22" y="28" font-size="12.5" font-weight="bold" fill="var(--accent)">病院情報システム（HIS）＝ 病院全体のシステムの総称</text>
+ <rect x="205" y="42" width="310" height="88" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="2"/>
+ <text x="360" y="68" text-anchor="middle" font-size="14.5" font-weight="bold" fill="var(--ink)">電子カルテ／オーダエントリ</text>
+ <text x="360" y="90" text-anchor="middle" font-size="11.5" fill="var(--sub)">医師が指示（オーダ）を入力する</text>
+ <text x="360" y="108" text-anchor="middle" font-size="10.5" fill="var(--sub)">検体検査・投薬・注射・画像・手術・給食・入退院予約 など</text>
+ <text x="360" y="150" text-anchor="middle" font-size="11.5" fill="var(--accent)">オーダ情報が各部門へ流れる</text>
+ <g stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ar)">
+  <line x1="230" y1="158" x2="120" y2="170"/><line x1="310" y1="158" x2="285" y2="170"/>
+  <line x1="410" y1="158" x2="440" y2="170"/><line x1="490" y1="158" x2="600" y2="170"/>
+ </g>
+ <rect x="22" y="175" width="160" height="88" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="102" y="196" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">検査系</text>
+ <text x="102" y="216" text-anchor="middle" font-size="11" fill="var(--sub)">臨床検査（LIS）</text>
+ <text x="102" y="233" text-anchor="middle" font-size="11" fill="var(--sub)">検体・生理・病理</text>
+ <text x="102" y="252" text-anchor="middle" font-size="11" fill="var(--sub)">内視鏡・輸血</text>
+ <rect x="196" y="175" width="160" height="88" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="276" y="196" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">画像系</text>
+ <text x="276" y="216" text-anchor="middle" font-size="11" fill="var(--sub)">放射線部門（RIS）</text>
+ <text x="276" y="233" text-anchor="middle" font-size="11" fill="var(--sub)">医用画像管理（PACS）</text>
+ <text x="276" y="252" text-anchor="middle" font-size="11" fill="var(--sub)">放射線治療</text>
+ <rect x="370" y="175" width="160" height="88" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="450" y="196" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">治療・ケア系</text>
+ <text x="450" y="216" text-anchor="middle" font-size="11" fill="var(--sub)">薬剤・看護・手術</text>
+ <text x="450" y="233" text-anchor="middle" font-size="11" fill="var(--sub)">集中治療・救急</text>
+ <text x="450" y="252" text-anchor="middle" font-size="11" fill="var(--sub)">リハビリ・血液浄化</text>
+ <rect x="544" y="175" width="160" height="88" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="624" y="196" text-anchor="middle" font-size="12.5" font-weight="bold" fill="var(--ink)">管理系</text>
+ <text x="624" y="216" text-anchor="middle" font-size="11" fill="var(--sub)">病床管理・診療予約</text>
+ <text x="624" y="233" text-anchor="middle" font-size="11" fill="var(--sub)">物流・中央材料</text>
+ <text x="624" y="252" text-anchor="middle" font-size="11" fill="var(--sub)">ME機器・栄養給食</text>
+ <g stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ar2)">
+  <line x1="102" y1="267" x2="250" y2="288"/><line x1="276" y1="267" x2="320" y2="288"/>
+  <line x1="450" y1="267" x2="410" y2="288"/><line x1="624" y1="267" x2="470" y2="288"/>
+ </g>
+ <rect x="240" y="292" width="240" height="34" rx="9" fill="var(--box)" stroke="var(--ok)" stroke-width="2"/>
+ <text x="360" y="315" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--ink)">医事会計システム</text>
+ <text x="492" y="308" font-size="11" fill="var(--sub)">実施情報が会計へ</text>
+ <text x="492" y="324" font-size="11" fill="var(--sub)">→ レセプト作成</text>
+</svg>
+<figcaption>図6-1　病院情報システムの全体像</figcaption>
+</figure>
+
+<div class="warnbox"><b>ここが試験の核</b>　オーダを出す → 部門システムが受けて<b>実施</b>する → <b>実施情報</b>が電子カルテに戻り、会計に必要な分は<b>医事会計システムへ流れる</b>。この一連の流れが繰り返し問われます。「部門システムは会計と連携しない」は誤りです。</div>
+
+<div class="abbr">
+<div class="h">システム名の略語</div>
+<table>
+<tr><td class="e">HIS</td><td class="j">Hospital Information System ＝ 病院／情報／システム</td></tr>
+<tr><td class="e">EMR</td><td class="j">Electronic Medical Record ＝ 電子的な／診療／記録。日本語の「電子カルテ」</td></tr>
+<tr><td class="e">EHR</td><td class="j">Electronic Health Record ＝ 電子的な／<b>健康</b>／記録。地域・国レベルで共有する生涯記録</td></tr>
+<tr><td class="e">PHR</td><td class="j">Personal Health Record ＝ <b>個人の</b>／健康／記録。最終的に<b>個人が管理</b>するのが望ましい</td></tr>
+<tr><td class="e">RIS</td><td class="j">Radiology Information System ＝ 放射線／情報／システム。受付・予約・実施入力・照射記録・読影結果</td></tr>
+<tr><td class="e">PACS</td><td class="j">Picture Archiving and Communication System ＝ 画像を／保管し／やりとりする／システム</td></tr>
+<tr><td class="e">LIS</td><td class="j">Laboratory Information System ＝ 臨床検査／情報／システム</td></tr>
+</table>
+<div class="r"><b>Medical（診療）とHealth（健康）</b>の差が EMR と EHR/PHR の差です。M は病院の中の記録、H は病院の外まで含む一生の記録。<br><b>RIS と PACS</b> の混同も頻出。RIS は「予約・受付・実施記録という<b>業務</b>の管理」、PACS は「<b>画像そのもの</b>の保管・参照」。</div>
+</div>
+
+<h3>6-2　遠隔医療は「誰と誰の間か」</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 175" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="15" width="330" height="145" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="175" y="42" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--accent)">DtoD（医師 ↔ 医師）</text>
+ <text x="175" y="63" text-anchor="middle" font-size="11.5" fill="var(--sub)">Doctor to Doctor</text>
+ <text x="30" y="90" font-size="12.5" fill="var(--ink)">テレラジオロジー＝遠隔<b>放射線</b>診断</text>
+ <text x="30" y="112" font-size="12.5" fill="var(--ink)">テレパソロジー＝遠隔<b>病理</b>診断</text>
+ <text x="30" y="134" font-size="12.5" fill="var(--ink)">テレカンファレンス＝遠隔症例検討</text>
+ <text x="30" y="152" font-size="11.5" fill="var(--sub)">専門医が支援側、依頼側へ結果を返す</text>
+ <rect x="360" y="15" width="330" height="145" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="525" y="42" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--accent2)">DtoP（医師 ↔ 患者）</text>
+ <text x="525" y="63" text-anchor="middle" font-size="11.5" fill="var(--sub)">Doctor to Patient</text>
+ <text x="380" y="90" font-size="12.5" fill="var(--ink)">オンライン診療</text>
+ <text x="380" y="112" font-size="12.5" fill="var(--ink)">テレホームケア＝遠隔在宅医療</text>
+ <text x="380" y="134" font-size="12.5" fill="var(--ink)">リモートモニタリング・遠隔健康指導</text>
+ <text x="380" y="152" font-size="11.5" fill="var(--sub)">看護師が同席する形態は DtoPwN</text>
+</svg>
+<figcaption>図6-2　遠隔医療の2形態</figcaption>
+</figure>
+<p>tele- は「遠い」という接頭語です。<b>radiology＝放射線科、pathology＝病理学、surgery＝外科手術</b>を知っていれば、テレラジオロジー・テレパソロジー・テレサージェリーは自力で訳せます。</p>
+
+<h3>6-3　電子保存の三原則</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 175" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="18" width="220" height="140" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.6"/>
+ <text x="120" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--accent)">真正性</text>
+ <text x="120" y="72" text-anchor="middle" font-size="12.5" fill="var(--ink)">誰が書いたかが明確で</text>
+ <text x="120" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">ウソ・書き換え・消去・</text>
+ <text x="120" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">混同が防がれている</text>
+ <text x="120" y="140" text-anchor="middle" font-size="11" fill="var(--sub)">混同＝患者の取り違え</text>
+ <rect x="240" y="18" width="220" height="140" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.6"/>
+ <text x="350" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--accent2)">見読性</text>
+ <text x="350" y="72" text-anchor="middle" font-size="12.5" fill="var(--ink)">必要なときに</text>
+ <text x="350" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">肉眼で読める状態に</text>
+ <text x="350" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">できる</text>
+ <text x="350" y="140" text-anchor="middle" font-size="11" fill="var(--sub)">監査時は直ちに書面表示</text>
+ <rect x="470" y="18" width="220" height="140" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.6"/>
+ <text x="580" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--accent)">保存性</text>
+ <text x="580" y="72" text-anchor="middle" font-size="12.5" fill="var(--ink)">法令で定められた</text>
+ <text x="580" y="92" text-anchor="middle" font-size="12.5" fill="var(--ink)">期間にわたって</text>
+ <text x="580" y="112" text-anchor="middle" font-size="12.5" fill="var(--ink)">真正性と見読性を保つ</text>
+ <text x="580" y="140" text-anchor="middle" font-size="11" fill="var(--sub)">3基準・3条件ともいう</text>
+</svg>
+<figcaption>図6-3　電子保存の三原則（厚生労働省）</figcaption>
+</figure>
+<div class="warnbox"><b>混同注意</b>　情報セキュリティの3要素は<b>機密性・完全性・可用性</b>、電子保存の三原則は<b>真正性・見読性・保存性</b>。両方に「性」が付くため入れ替えたひっかけが定番です。可用性は三原則に入りません。</div>
+
+<h4>3省2ガイドライン</h4>
+<table>
+<tr><th>ガイドライン</th><th>出している省庁</th><th>対象</th></tr>
+<tr><td>医療情報システムの安全管理に関するガイドライン</td><td><b>厚生労働省</b></td><td>医療機関側</td></tr>
+<tr><td>医療情報を取り扱う情報システム・サービスの提供事業者における安全管理ガイドライン</td><td><b>総務省・経済産業省</b></td><td>ベンダ・事業者側</td></tr>
+</table>
+<p>「3省」＝厚労省・総務省・経産省、「2ガイドライン」＝上の2本。厚労省のガイドライン第6.0版は<b>概説編・経営管理編・企画管理編・システム運用編</b>の4編構成です。</p>
+
+<h4>安全管理対策の4分類</h4>
+<table>
+<tr><th>分類</th><th>具体例</th></tr>
+<tr><td>組織的</td><td>管理者・管理組織の設置、運用管理規程やマニュアルの策定、定期的な監査</td></tr>
+<tr><td>物理的</td><td>入退室管理、施錠、防犯カメラ、<b>非常電源</b>、耐震設備</td></tr>
+<tr><td>技術的</td><td>利用者の識別と認証、アクセス権限管理、アクセスログ監査、ウイルス対策、暗号化</td></tr>
+<tr><td>人的</td><td>ユーザ教育、守秘義務契約、違反時の罰則、緊急時の訓練</td></tr>
+</table>
+<div class="note"><b>迷ったら</b>　<b>モノや場所</b>の話なら物理的、<b>仕組みやプログラム</b>なら技術的、<b>ルールや体制</b>なら組織的、<b>人</b>への教育・契約なら人的。非常電源は「モノ」なので物理的です。</div>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>オーダ→部門で実施→実施情報が電子カルテと医事会計へ、の流れ</li>
+<li>RISは業務管理、PACSは画像の保管・参照</li>
+<li>EMRは病院の中の診療記録、EHRは地域・国で共有、PHRは個人が管理</li>
+<li>三原則は真正性・見読性・保存性（可用性ではない）</li>
+<li>ORCAは日本医師会の標準レセプトソフト</li>
+</ul></div>
+</section>
+
+<section class="ch" id="c7">
+<h2><i>7</i>医療情報の標準化と活用</h2>
+
+<h3>7-1　標準規格は「役割」で4つに分ける</h3>
+<p>規格名を丸暗記しようとすると混ざります。<b>言葉を決めるもの・運ぶもの・貯めるもの・モノを識別するもの</b>の4系統に分けてください。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 720 265" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="12" y="15" width="168" height="235" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="96" y="40" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--accent)">言葉を決める</text>
+ <text x="96" y="59" text-anchor="middle" font-size="11" fill="var(--sub)">コード・用語</text>
+ <text x="26" y="88" font-size="12.5" fill="var(--ink)">ICD-11 / ICD-10</text>
+ <text x="26" y="106" font-size="11" fill="var(--sub)">病名の国際分類（WHO）</text>
+ <text x="26" y="130" font-size="12.5" fill="var(--ink)">標準病名マスター</text>
+ <text x="26" y="148" font-size="11" fill="var(--sub)">日本の病名（MEDIS-DC）</text>
+ <text x="26" y="172" font-size="12.5" fill="var(--ink)">JLAC10 / JLAC11</text>
+ <text x="26" y="190" font-size="11" fill="var(--sub)">臨床検査項目</text>
+ <text x="26" y="214" font-size="12.5" fill="var(--ink)">HOT番号</text>
+ <text x="26" y="232" font-size="11" fill="var(--sub)">医薬品コードの対応付け</text>
+ <rect x="190" y="15" width="168" height="235" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="274" y="40" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--accent2)">運ぶ</text>
+ <text x="274" y="59" text-anchor="middle" font-size="11" fill="var(--sub)">交換・通信</text>
+ <text x="204" y="88" font-size="12.5" fill="var(--ink)">HL7</text>
+ <text x="204" y="106" font-size="11" fill="var(--sub)">主に<tspan font-weight="bold">テキスト</tspan>情報の交換</text>
+ <text x="204" y="124" font-size="11" fill="var(--sub)">第7層だけを定義</text>
+ <text x="204" y="152" font-size="12.5" fill="var(--ink)">FHIR</text>
+ <text x="204" y="170" font-size="11" fill="var(--sub)">HL7の新世代。API方式</text>
+ <text x="204" y="198" font-size="12.5" fill="var(--ink)">DICOM</text>
+ <text x="204" y="216" font-size="11" fill="var(--sub)">主に<tspan font-weight="bold">画像</tspan>の交換</text>
+ <text x="204" y="234" font-size="11" fill="var(--sub)">ACRとNEMAが制定</text>
+ <rect x="368" y="15" width="168" height="235" rx="10" fill="var(--box)" stroke="var(--accent)" stroke-width="1.5"/>
+ <text x="452" y="40" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--accent)">貯める</text>
+ <text x="452" y="59" text-anchor="middle" font-size="11" fill="var(--sub)">保存</text>
+ <text x="382" y="88" font-size="12.5" fill="var(--ink)">SS-MIX2</text>
+ <text x="382" y="106" font-size="11" fill="var(--sub)">標準化ストレージの仕様</text>
+ <text x="382" y="124" font-size="11" fill="var(--sub)">HL7 v2.5に準拠</text>
+ <text x="382" y="142" font-size="11" fill="var(--sub)">日本医療情報学会が中心</text>
+ <text x="382" y="176" font-size="12.5" fill="var(--ink)">3文書6情報</text>
+ <text x="382" y="194" font-size="11" fill="var(--sub)">優先して標準化する</text>
+ <text x="382" y="212" font-size="11" fill="var(--sub)">データの範囲</text>
+ <rect x="546" y="15" width="162" height="235" rx="10" fill="var(--box2)" stroke="var(--accent2)" stroke-width="1.5"/>
+ <text x="627" y="40" text-anchor="middle" font-size="13.5" font-weight="bold" fill="var(--accent2)">モノを識別する</text>
+ <text x="627" y="59" text-anchor="middle" font-size="11" fill="var(--sub)">バーコード</text>
+ <text x="560" y="88" font-size="12.5" fill="var(--ink)">JANコード</text>
+ <text x="560" y="106" font-size="11" fill="var(--sub)">日本の商品コード</text>
+ <text x="560" y="130" font-size="12.5" fill="var(--ink)">GTIN</text>
+ <text x="560" y="148" font-size="11" fill="var(--sub)">国際的な商品識別コード</text>
+ <text x="560" y="172" font-size="12.5" fill="var(--ink)">GS1-128</text>
+ <text x="560" y="190" font-size="11" fill="var(--sub)">医療機器・材料に推奨</text>
+ <text x="560" y="208" font-size="11" fill="var(--sub)">有効期限・ロットも表現</text>
+ <text x="560" y="232" font-size="12.5" fill="var(--ink)">QRコード（二次元）</text>
+</svg>
+<figcaption>図7-1　標準規格の守備範囲</figcaption>
+</figure>
+
+<div class="warnbox"><b>最頻出の対比</b>　<b>HL7＝テキスト、DICOM＝画像</b>。この一組は毎回のように出ます。HL7 は OSI参照モデルの<b>第7層（アプリケーション層）だけ</b>を定義したのが名前の由来で、通信手段は定義していません。</div>
+
+<div class="abbr">
+<div class="h">標準化に関わる組織 ― 略語を分解する</div>
+<table>
+<tr><td class="e">WHO</td><td class="j">World Health Organization ＝ 世界／保健／機関。<b>ICDを公表</b></td></tr>
+<tr><td class="e">ISO</td><td class="j">International Organization for Standardization ＝ 国際標準化機構。医療情報は TC/215 が担当</td></tr>
+<tr><td class="e">JIS</td><td class="j">Japanese Industrial Standards ＝ 日本産業規格（2019年に「工業」から「産業」へ改称）</td></tr>
+<tr><td class="e">MEDIS-DC</td><td class="j">MEDical Information System Development Center ＝ 医療情報システム開発センター。<b>標準病名マスター・JLAC・HOTコードを管理</b></td></tr>
+<tr><td class="e">JAHIS</td><td class="j">保健医療福祉情報システム<b>工業会</b>。システムを作る企業の団体</td></tr>
+<tr><td class="e">HELICS</td><td class="j">医療情報標準化推進<b>協議会</b>。ここで採択された指針から<b>厚生労働省標準規格</b>が定まる</td></tr>
+<tr><td class="e">IHE</td><td class="j">Integrating the Healthcare Enterprise ＝ 医療機関を／統合する。<b>規格の使い方（ワークフロー）</b>を決める</td></tr>
+</table>
+<div class="r"><b>役割で覚える</b>　規格そのものを作るのが HL7 International や DICOM委員会、<b>使い方</b>を決めるのが IHE、<b>日本のマスターを維持</b>するのが MEDIS-DC、<b>国の標準規格の入口</b>が HELICS。</div>
+</div>
+
+<h3>7-2　尺度は「何ができるか」で4段階</h3>
+<figure class="fig">
+<svg viewBox="0 0 720 235" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <rect x="10" y="15" width="700" height="48" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="26" y="36" font-size="13.5" font-weight="bold" fill="var(--ink)">名義尺度</text>
+ <text x="130" y="36" font-size="12" fill="var(--sub)">区別だけ。計算できない</text>
+ <text x="380" y="36" font-size="12.5" fill="var(--ink)">性別・血液型・病名・患者番号</text>
+ <text x="26" y="55" font-size="11.5" fill="var(--sub)">数えられるが、平均も順序も意味がない</text>
+ <rect x="10" y="70" width="700" height="48" rx="9" fill="var(--box3)" stroke="var(--line)"/>
+ <text x="26" y="91" font-size="13.5" font-weight="bold" fill="var(--ink)">順序尺度</text>
+ <text x="130" y="91" font-size="12" fill="var(--sub)">順序に意味あり。差は無意味</text>
+ <text x="380" y="91" font-size="12.5" fill="var(--ink)">成績の順位・満足度</text>
+ <text x="26" y="110" font-size="11.5" fill="var(--sub)">中央値は使えるが、平均値は本来使えない</text>
+ <rect x="10" y="125" width="700" height="48" rx="9" fill="var(--box)" stroke="var(--accent)"/>
+ <text x="26" y="146" font-size="13.5" font-weight="bold" fill="var(--ink)">間隔尺度</text>
+ <text x="130" y="146" font-size="12" fill="var(--sub)">差に意味あり。比は無意味</text>
+ <text x="380" y="146" font-size="12.5" fill="var(--ink)">気温・体温・視力・肥満度</text>
+ <text x="26" y="165" font-size="11.5" fill="var(--sub)">0が「無い」を意味しない。40度は20度の2倍暑いとは言えない</text>
+ <rect x="10" y="180" width="700" height="48" rx="9" fill="var(--box2)" stroke="var(--accent2)"/>
+ <text x="26" y="201" font-size="13.5" font-weight="bold" fill="var(--ink)">比尺度</text>
+ <text x="130" y="201" font-size="12" fill="var(--sub)">加減乗除すべて可能</text>
+ <text x="380" y="201" font-size="12.5" fill="var(--ink)">身長・体重・血圧・赤血球数</text>
+ <text x="26" y="220" font-size="11.5" fill="var(--sub)">0が「無い」を意味する。60kgは30kgの2倍と言える</text>
+</svg>
+<figcaption>図7-2　尺度の4分類。下へ行くほどできる計算が増える</figcaption>
+</figure>
+<div class="note"><b>見分け方</b>　<b>「0がゼロを意味するか」</b>を問えば間隔尺度と比尺度は分かれます。体温0度は「熱が無い」ではないので間隔尺度、体重0kgは「重さが無い」なので比尺度です。上の2つ（名義・順序）は<b>質的データ</b>、下の2つ（間隔・比）は<b>量的データ</b>。</div>
+
+<h3>7-3　代表値と散布度</h3>
+<table>
+<tr><th>区分</th><th>指標</th><th>意味</th></tr>
+<tr><td rowspan="3"><b>代表値</b><br>（真ん中はどこか）</td><td>平均値</td><td>合計 ÷ 個数。左右対称でない分布や外れ値に弱い</td></tr>
+<tr><td>中央値</td><td>並べてちょうど真ん中。外れ値に強い</td></tr>
+<tr><td>最頻値</td><td>いちばん多く出る値</td></tr>
+<tr><td rowspan="4"><b>散布度</b><br>（どれだけ散らばるか）</td><td>範囲</td><td>最大値 − 最小値</td></tr>
+<tr><td>分散</td><td>平均からのズレを2乗して平均したもの</td></tr>
+<tr><td>標準偏差</td><td><b>分散の平方根</b>。平均値と同じ単位になる</td></tr>
+<tr><td>標準誤差</td><td>標準偏差 ÷ √データ数。<b>母平均の区間推定</b>に使う</td></tr>
+</table>
+<div class="warnbox"><b>ひっかけ注意</b>　<b>最頻値は代表値であって散布度ではありません</b>。「散布度に含まれないものはどれか」で最頻値を選ばせる問題が定番です。<br>正規分布のような左右対称な分布では 最頻値 ≒ 中央値 ≒ 平均値。非対称な分布では <b>最頻値 &lt; 中央値 &lt; 平均値</b> の順になります。</div>
+
+<figure class="fig">
+<svg viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+ <line x1="120" y1="80" x2="200" y2="80" stroke="var(--accent)" stroke-width="1.6"/>
+ <line x1="120" y1="62" x2="120" y2="98" stroke="var(--accent)" stroke-width="1.6"/>
+ <rect x="200" y="52" width="230" height="56" fill="var(--box)" stroke="var(--accent)" stroke-width="1.8"/>
+ <line x1="300" y1="52" x2="300" y2="108" stroke="var(--accent)" stroke-width="2.4"/>
+ <line x1="430" y1="80" x2="520" y2="80" stroke="var(--accent)" stroke-width="1.6"/>
+ <line x1="520" y1="62" x2="520" y2="98" stroke="var(--accent)" stroke-width="1.6"/>
+ <circle cx="600" cy="80" r="4.5" fill="var(--ng)"/>
+ <text x="120" y="130" text-anchor="middle" font-size="11.5" fill="var(--sub)">最小値</text>
+ <text x="200" y="130" text-anchor="middle" font-size="11.5" fill="var(--ink)">第1四分位数</text>
+ <text x="200" y="146" text-anchor="middle" font-size="11" fill="var(--sub)">25%</text>
+ <text x="300" y="36" text-anchor="middle" font-size="11.5" fill="var(--ink)">第2四分位数＝中央値</text>
+ <text x="430" y="130" text-anchor="middle" font-size="11.5" fill="var(--ink)">第3四分位数</text>
+ <text x="430" y="146" text-anchor="middle" font-size="11" fill="var(--sub)">75%</text>
+ <text x="520" y="130" text-anchor="middle" font-size="11.5" fill="var(--sub)">最大値</text>
+ <text x="614" y="84" font-size="11.5" fill="var(--ng)">外れ値</text>
+ <path d="M200 165 L430 165" stroke="var(--accent2)" stroke-width="1.4" marker-start="url(#ar)" marker-end="url(#ar)"/>
+ <text x="315" y="182" text-anchor="middle" font-size="11.5" fill="var(--accent2)">四分位範囲＝第3四分位数 − 第1四分位数</text>
+</svg>
+<figcaption>図7-3　箱ひげ図の読み方</figcaption>
+</figure>
+<p>箱ひげ図は<b>正規分布していないデータ</b>の表現に向きます。ひげの端を「四分位範囲×1.5」までにする描き方だと、外れ値が点で見えるため一般に推奨されます。</p>
+
+<h4>グラフの使い分け</h4>
+<table>
+<tr><th>グラフ</th><th>目的</th><th>注意点</th></tr>
+<tr><td>ヒストグラム</td><td>分布の形を見る</td><td>棒の間隔を<b>空けない</b></td></tr>
+<tr><td>棒グラフ</td><td>項目間の量を比べる</td><td>棒の間隔を<b>空ける</b></td></tr>
+<tr><td>円グラフ・帯グラフ</td><td>構成比を見る</td><td>大きい順に並べ、「その他」は最後</td></tr>
+<tr><td>折れ線グラフ</td><td>時系列の変化を見る</td><td>―</td></tr>
+<tr><td>散布図</td><td>2項目の関係を見る</td><td>右上がり＝正の相関</td></tr>
+<tr><td>レーダーチャート</td><td>複数指標の全体傾向</td><td>外側ほど良い、と割り当てる</td></tr>
+</table>
+<p>相関係数は<b>−1 から +1</b> の値をとり、±1に近いほど関係が強い。ただし<b>相関があっても因果関係があるとは限りません</b>（交絡因子）。</p>
+
+<div class="chk"><b>この章のチェック</b>
+<ul>
+<li>HL7＝テキスト、DICOM＝画像、SS-MIX2＝保存</li>
+<li>ICDはWHO、標準病名マスターとJLACとHOTはMEDIS-DC</li>
+<li>体温は間隔尺度、体重は比尺度</li>
+<li>最頻値は代表値であって散布度ではない</li>
+<li>標準偏差＝分散の平方根、標準誤差＝標準偏差÷√n</li>
+</ul></div>
+</section>
+
+<section class="ch" id="abbrlist">
+<h2><i>付</i>略語ぜんぶ読み解き表</h2>
+<p>試験に出る略語を、<b>英単語ごとの意味</b>とセットで並べました。分からない略語に出会ったら、まず単語に切って日本語をあてる癖をつけると、初見の用語でも半分は推測できます。</p>
+
+<h3>組織・制度</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>WHO</td><td>World（世界）Health（保健）Organization（機関）</td><td>世界保健機関。ICDを公表</td></tr>
+<tr><td>ISO</td><td>International Organization for Standardization</td><td>国際標準化機構</td></tr>
+<tr><td>JIS</td><td>Japanese Industrial Standards</td><td>日本産業規格</td></tr>
+<tr><td>DPC/PDPS</td><td>Diagnosis（診断）Procedure（処置）Combination（組合せ）／Per-Diem（1日あたり）Payment System（支払制度）</td><td>診断群分類にもとづく1日あたり包括払い</td></tr>
+<tr><td>DMAT</td><td>Disaster（災害）Medical（医療）Assistance（支援）Team（チーム）</td><td>災害派遣医療チーム</td></tr>
+<tr><td>BCP</td><td>Business（事業）Continuity（継続）Plan（計画）</td><td>事業継続計画</td></tr>
+<tr><td>QOL</td><td>Quality（質）of Life（生活）</td><td>生活の質</td></tr>
+<tr><td>GCP</td><td>Good Clinical（臨床の）Practice（実施基準）</td><td>治験の実施基準を定めた省令</td></tr>
+<tr><td>ACP</td><td>Advance（前もっての）Care（ケア）Planning（計画）</td><td>将来の医療・ケアを繰り返し話し合う取り組み</td></tr>
+<tr><td>DNAR</td><td>Do Not Attempt Resuscitation（蘇生を試みない）</td><td>蘇生措置拒否</td></tr>
+<tr><td>GDPR</td><td>General（一般）Data（データ）Protection（保護）Regulation（規則）</td><td>EUの個人データ保護規則</td></tr>
+</table>
+
+<h3>病院の部門・チーム</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>ICU</td><td>Intensive（集中的な）Care（治療）Unit（室）</td><td>集中治療室。看護師1人に患者2人</td></tr>
+<tr><td>CCU</td><td>Coronary（冠動脈の）Care Unit</td><td>冠動脈疾患治療室</td></tr>
+<tr><td>NICU</td><td>Neonatal（新生児の）Intensive Care Unit</td><td>新生児集中治療室。看護師1人に患者3人</td></tr>
+<tr><td>PICU</td><td>Pediatric（小児の）Intensive Care Unit</td><td>小児集中治療室</td></tr>
+<tr><td>ICT</td><td>Infection（感染）Control（制御）Team</td><td>感染症管理チーム</td></tr>
+<tr><td>NST</td><td>Nutrition（栄養）Support（支援）Team</td><td>栄養サポートチーム</td></tr>
+<tr><td>SPD</td><td>Supply（供給）Processing（加工）and Distribution（分配）</td><td>医療材料の中央一元管理</td></tr>
+<tr><td>DI</td><td>Drug（医薬品）Information（情報）</td><td>医薬品情報</td></tr>
+<tr><td>PT / OT / ST</td><td>Physical（身体の）／Occupational（作業の）／Speech（言語の）Therapist（療法士）</td><td>理学／作業／言語聴覚療法士</td></tr>
+</table>
+
+<h3>診療記録</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>POMR</td><td>Problem（問題）Oriented（志向の）Medical Record（診療記録）</td><td>問題指向型診療記録</td></tr>
+<tr><td>POS</td><td>Problem Oriented System</td><td>問題指向型システム</td></tr>
+<tr><td>SOAP</td><td>Subjective（主観的）Objective（客観的）Assessment（評価）Plan（計画）</td><td>診療録の記載法</td></tr>
+<tr><td>IC</td><td>Informed（説明を受けた）Consent（同意）</td><td>説明と同意</td></tr>
+</table>
+
+<h3>コンピュータ</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>CPU</td><td>Central（中央）Processing（処理）Unit（装置）</td><td>中央処理装置。演算＋制御</td></tr>
+<tr><td>GPU</td><td>Graphics（画像）Processing Unit</td><td>画像処理装置。並列処理が得意</td></tr>
+<tr><td>RAM</td><td>Random（自由な）Access（アクセス）Memory（記憶）</td><td>読み書きできる記憶。主記憶では電源で消える</td></tr>
+<tr><td>ROM</td><td>Read（読む）Only（だけ）Memory</td><td>読み出し専用。電源を切っても残る</td></tr>
+<tr><td>HDD</td><td>Hard（硬い）Disk（円盤）Drive（駆動装置）</td><td>磁気ディスク。安価・大容量</td></tr>
+<tr><td>SSD</td><td>Solid（固体の）State（状態）Drive</td><td>フラッシュメモリ。速い・丈夫・高価</td></tr>
+<tr><td>RAID</td><td>Redundant（冗長な）Array（配列）of Inexpensive Disks</td><td>複数ディスクを1台に見せる技術</td></tr>
+<tr><td>NAS</td><td>Network（ネットワーク）Attached（接続された）Storage（記憶装置）</td><td>ネットワーク上の共有ストレージ</td></tr>
+<tr><td>UPS</td><td>Uninterruptible（途切れない）Power Supply（電源供給）</td><td>無停電電源装置</td></tr>
+<tr><td>OCR / OMR</td><td>Optical（光学的）Character（文字）／Mark（マーク）Reader（読取装置）</td><td>文字読取／マーク読取</td></tr>
+<tr><td>OS</td><td>Operating（動作させる）System</td><td>基本ソフトウェア</td></tr>
+<tr><td>GUI</td><td>Graphical（図形的）User（利用者）Interface（接点）</td><td>アイコンやボタンで操作する環境</td></tr>
+<tr><td>AI / ML / DL</td><td>Artificial Intelligence（人工知能）／Machine Learning（機械学習）／Deep Learning（深層学習）</td><td>DL ⊂ ML ⊂ AI の包含関係</td></tr>
+<tr><td>VR / AR</td><td>Virtual（仮想の）／Augmented（拡張された）Reality（現実）</td><td>仮想現実／拡張現実</td></tr>
+</table>
+
+<h3>ネットワークとセキュリティ</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>LAN / WAN</td><td>Local（構内）／Wide（広い）Area（範囲）Network</td><td>構内通信網／広域通信網</td></tr>
+<tr><td>MACアドレス</td><td>Media Access Control（媒体アクセス制御）</td><td>機器固有の48ビット物理アドレス</td></tr>
+<tr><td>IPアドレス</td><td>Internet Protocol（インターネット手順）</td><td>IPv4は32ビット、IPv6は128ビット</td></tr>
+<tr><td>SSID</td><td>Service Set（サービスの組）ID（識別子）</td><td>無線LANアクセスポイントの識別子</td></tr>
+<tr><td>DNS</td><td>Domain（領域）Name（名前）System</td><td>名前とIPアドレスの変換</td></tr>
+<tr><td>DHCP</td><td>Dynamic（動的な）Host（機器）Configuration（設定）Protocol</td><td>IPアドレスなどの自動割り当て</td></tr>
+<tr><td>SMTP / POP3</td><td>Simple Mail Transfer（転送）／Post Office（郵便局）Protocol</td><td>メール送信／受信</td></tr>
+<tr><td>SaaS / PaaS / IaaS</td><td>Software／Platform（土台）／Infrastructure（基盤）as a Service</td><td>クラウドの提供範囲の3段階</td></tr>
+<tr><td>DBMS</td><td>DataBase Management（管理）System</td><td>データベース管理システム</td></tr>
+<tr><td>SQL</td><td>Structured（構造化された）Query（問い合わせ）Language</td><td>関係データベースの操作言語</td></tr>
+<tr><td>ACID</td><td>Atomicity / Consistency / Isolation / Durability</td><td>原子性・一貫性・独立性・永続性</td></tr>
+<tr><td>PKI / HPKI</td><td>(Healthcare) Public（公開）Key（鍵）Infrastructure（基盤）</td><td>公開鍵基盤／保健医療分野の公開鍵基盤</td></tr>
+<tr><td>CA</td><td>Certification（証明）Authority（機関）</td><td>認証局</td></tr>
+<tr><td>IDS / IPS</td><td>Intrusion（侵入）Detection（検知）／Prevention（防止）System</td><td>侵入検知／侵入防止システム</td></tr>
+<tr><td>DMZ</td><td>DeMilitarized（非武装の）Zone（地帯）</td><td>内外の間の緩衝領域</td></tr>
+<tr><td>VPN</td><td>Virtual（仮想の）Private（専用の）Network</td><td>仮想専用回線</td></tr>
+<tr><td>SSL / TLS</td><td>Secure Sockets Layer / Transport Layer Security</td><td>通信を暗号化するプロトコル</td></tr>
+<tr><td>CSIRT / CISO</td><td>Computer Security Incident Response Team／Chief Information Security Officer</td><td>対応組織／最高情報セキュリティ責任者</td></tr>
+<tr><td>ISMS</td><td>Information Security Management（管理）System</td><td>情報セキュリティマネジメントシステム</td></tr>
+</table>
+
+<h3>医療情報システムと標準化</h3>
+<table>
+<tr><th>略語</th><th>もとの英語（単語ごとの意味）</th><th>日本語</th></tr>
+<tr><td>HIS</td><td>Hospital（病院）Information System</td><td>病院情報システム</td></tr>
+<tr><td>EMR</td><td>Electronic（電子的な）Medical（診療）Record（記録）</td><td>電子カルテ</td></tr>
+<tr><td>EHR</td><td>Electronic Health（健康）Record</td><td>生涯健康医療電子記録。地域・国で共有</td></tr>
+<tr><td>PHR</td><td>Personal（個人の）Health Record</td><td>個人健康医療記録。個人が管理</td></tr>
+<tr><td>RIS</td><td>Radiology（放射線科）Information System</td><td>放射線部門システム</td></tr>
+<tr><td>PACS</td><td>Picture（画像）Archiving（保管）and Communication（伝送）System</td><td>医用画像管理システム</td></tr>
+<tr><td>LIS</td><td>Laboratory（検査室）Information System</td><td>臨床検査部門システム</td></tr>
+<tr><td>ORCA</td><td>Online Receipt（レセプト）Computer Advantage</td><td>日本医師会標準レセプトソフト</td></tr>
+<tr><td>ICD</td><td>International Classification（分類）of Diseases（疾病）</td><td>疾病及び関連保健問題の国際統計分類</td></tr>
+<tr><td>HL7</td><td>Health Level Seven（第7層）</td><td>主にテキスト情報の交換規格</td></tr>
+<tr><td>FHIR</td><td>Fast（速い）Healthcare Interoperability（相互運用性）Resources（資源）</td><td>HL7の新世代規格。API方式</td></tr>
+<tr><td>DICOM</td><td>Digital Imaging（画像）and COmmunications in Medicine</td><td>医用画像の交換規格</td></tr>
+<tr><td>SS-MIX2</td><td>Standardized Structured Medical Information eXchange</td><td>標準化ストレージの仕様</td></tr>
+<tr><td>GTIN</td><td>Global（国際的な）Trade（取引）Item（商品）Number</td><td>GS1標準の商品識別コード</td></tr>
+<tr><td>DWH</td><td>Data Warehouse（倉庫）</td><td>データウェアハウス</td></tr>
+</table>
+
+<div class="note"><b>最後に</b>　この本は骨組みです。細かい数字・定義は公式の「医療情報基礎用語集 第2版」で確認し、覚えたかどうかは学習アプリの一問一答とドリルで確かめてください。<a href="index.html">学習アプリを開く</a></div>
+</section>
+</main>
+</div>
+<script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
+</body>
+</html>
